@@ -342,7 +342,8 @@ PRODUCT_SOONG_NAMESPACES += \
     
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.3-service.xiaomi
+    android.hardware.biometrics.fingerprint@2.3-service.xiaomi \
+    libudfpshandler
     
 # NFC
 PRODUCT_PACKAGES += \
