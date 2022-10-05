@@ -7,6 +7,8 @@
         <int
             name="lte_plus_threshold_bandwidth_khz_int"
             value="0" />
+            	<!-- PA: Use 4G icon for LTE by popular request -->
+		<boolean name="show_4g_for_lte_data_icon_bool" value="true" />
     </carrier_config>
     <carrier_config
         mcc="1"
