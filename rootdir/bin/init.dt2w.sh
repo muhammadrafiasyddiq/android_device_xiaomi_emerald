@@ -38,6 +38,3 @@ fi
 
 # Run Command
 sendevent /dev/input/event2 0 1 "$m_rafi_asyddiq"
-
-# HWC Fix 
-settings put system min_refresh_rate 60
