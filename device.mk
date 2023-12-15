@@ -198,7 +198,8 @@ PRODUCT_PACKAGES += \
     
 # Shim 
 PRODUCT_PACKAGES += \
-    libui_shim
+    libui_shim \
+    libshim_sink
     
 # Keymaster
 PRODUCT_COPY_FILES += \
