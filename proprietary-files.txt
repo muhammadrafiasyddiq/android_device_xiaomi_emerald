@@ -1092,16 +1092,6 @@ vendor/odm/lib64/hw/fingerprint.fpc.so
 vendor/odm/lib64/hw/fingerprint.goodix_fod.so
 vendor/odm/lib64/libgf_hal.so
 
-# Vibrator
-vendor/bin/hw/vendor.xiaomi.hardware.vibratorfeature.service
-vendor/etc/init/vendor.xiaomi.hardware.vibratorfeature.service.rc
-vendor/etc/init/vendor.xiaomi.hardware.vibratorfeature@1.0-service.rc
--vendor/etc/vintf/manifest/vendor.xiaomi.hardware.vibratorfeature.service.xml
-vendor/lib64/libaachaptics.so
-vendor/lib64/android.hardware.vibrator-V1-ndk_platform.so
-vendor/lib64/hw/vibrator.default.so
-vendor/lib64/vendor.hardware.vibratorfeature.IVibratorExt-V1-ndk_platform.so
-
 # USB
 vendor/bin/hw/android.hardware.usb@1.2-service-mediatekv2
 vendor/etc/init/android.hardware.usb@1.2-service-mediatekv2.rc
