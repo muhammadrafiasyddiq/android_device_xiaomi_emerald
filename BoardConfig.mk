@@ -194,7 +194,7 @@ TARGET_BOARD_PLATFORM := mt6789
 BOARD_HAS_MTK_HARDWARE = true
 
 # Power
-TARGET_POWERHAL_MODE_EXT := $(COMMON_PATH)/power/power-mode.cpp
+TARGET_POWER_LIBPERFMGR_MODE_EXTENSION_LIB := //$(DEVICE_PATH):libperfmgr-ext-xiaomi
 
 # Properties
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/config/prop/product.prop
