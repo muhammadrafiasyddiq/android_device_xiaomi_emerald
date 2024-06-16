@@ -198,7 +198,7 @@ PRODUCT_PACKAGES += \
     
 # Shim 
 PRODUCT_PACKAGES += \
-    libshim_ui \
+    libui_shim
     
 # Keymaster
 PRODUCT_COPY_FILES += \

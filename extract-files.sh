@@ -88,7 +88,7 @@ function blob_fixup() {
             "$PATCHELF" --replace-needed "android.hardware.gnss-V1-ndk_platform.so" "android.hardware.gnss-V1-ndk.so" "$2"
             ;;
             system_ext/lib64/libsource.so)
-            "${PATCHELF}" --add-needed "libshim_ui.so" "${2}"
+            "${PATCHELF}" --add-needed "libui_shim.so" "${2}"
             ;;
     esac
 }
