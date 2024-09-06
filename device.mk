@@ -105,12 +105,10 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.2-impl.recovery \
     android.hardware.boot@1.2-service
 
-
 # Build MT-PL-Utils
 PRODUCT_PACKAGES += \
-    mtk_plpath_utils \
-    mtk_plpath_utils.recovery
-
+    create_pl_dev \
+    create_pl_dev.recovery
 
 # DT2W
 PRODUCT_PACKAGES += \
