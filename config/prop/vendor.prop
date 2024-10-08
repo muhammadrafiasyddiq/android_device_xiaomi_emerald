@@ -234,6 +234,7 @@ ro.vendor.mtk_external_sim_only_slots=0
 # Sensor
 ro.vendor.init.sensor.rc=init.sensor_2_0.rc
 ro.vendor.mtk.sensor.support=yes
+ro.vendor.sensors.xiaomi.udfps=yes
 
 # PQ
 ro.vendor.mtk_pq_support=2
