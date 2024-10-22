@@ -254,8 +254,10 @@
             <routes>
                 <route type="mix" sink="Earpiece"
                        sources="primary output,deep_buffer,voip_rx,mmap_no_irq_out,fast,Voice Call In"/>
+                <!-- N6 code for HQ-330540 by liutongren at 2023/09/25 start -->
                 <route type="mix" sink="Speaker"
-                       sources="primary output,deep_buffer,mmap_no_irq_out,fast,FM Tuner In,voip_rx,Voice Call In"/>
+                       sources="primary output,deep_buffer,mmap_no_irq_out,FM Tuner In,voip_rx,Voice Call In"/>
+                <!-- N6 code for HQ-330540 by liutongren at 2023/09/25 end -->
                 <route type="mix" sink="Wired Headset"
                        sources="primary output,deep_buffer,mmap_no_irq_out,fast,FM Tuner In,voip_rx,Voice Call In"/>
                 <route type="mix" sink="Wired Headphones"

@@ -23,14 +23,23 @@
         <path name="HP_IMPEDANCE" value="turnoff">
             <kctl name="HPL Mux" value="Open" />
         </path>
+        <!-- Audio bringup receiver config zhangguangshuai 20230627 start -->
         <!--receiver output-->
         <path name="receiver_output" value="turnon">
             <kctl name="DAC In Mux" value="Normal Path" />
             <kctl name="RCV Mux" value="Voice Playback" />
+            <kctl name="aw87xxx_profile_switch_0" value="Off" />
+            <kctl name="aw87xxx_profile_switch_1" value="Receiver" />
+            <kctl name="FSM_Scene" value="15" />
+            <kctl name="FSM_Amp_Switch" value="On" />
         </path>
         <path name="receiver_output" value="turnoff">
+            <kctl name="aw87xxx_profile_switch_0" value="Off" />
+            <kctl name="aw87xxx_profile_switch_1" value="Off" />
+            <kctl name="FSM_Amp_Switch" value="Off" />
             <kctl name="RCV Mux" value="Open" />
         </path>
+        <!-- Audio bringup receiver config zhangguangshuai 20230627 end -->
        <!-- 2-in-1 speaker output-->
         <path name="two_in_one_speaker_output" value="turnon">
         </path>
@@ -74,20 +83,50 @@
             <kctl name="HPL Mux" value="Open" />
             <kctl name="HPR Mux" value="Open" />
         </path>
+        <!-- Audio bringup speaker config zhangguangshuai 20230627 start -->
         <!--external_speaker output-->
-        <!--L19 code for HQ-157278 by zhangkaiming at 2021/10/20 start-->
         <path name="ext_speaker_output" value="turnon">
             <kctl name="Ext_Speaker_Amp Switch" value="1" />
-            <kctl name="Sia81xx Audio Scene" value="Playback" />
-            <kctl name="Sia81xx Power" value="On" />
             <kctl name="aw87xxx_profile_switch_0" value="Music" />
+            <kctl name="aw87xxx_profile_switch_1" value="Music" />
+            <kctl name="FSM_Scene" value="0" />
+            <kctl name="FSM_Amp_Switch" value="On" />
         </path>
         <path name="ext_speaker_output" value="turnoff">
-            <kctl name="Ext_Speaker_Amp Switch" value="0" />
-            <kctl name="Sia81xx Power" value="Off" />
             <kctl name="aw87xxx_profile_switch_0" value="Off" />
+            <kctl name="aw87xxx_profile_switch_1" value="Off" />
+            <kctl name="FSM_Amp_Switch" value="Off" />
+            <kctl name="Ext_Speaker_Amp Switch" value="0" />
         </path>
-        <!--L19 code for HQ-157278 by zhangkaiming at 2021/10/20 end-->
+        <!-- Audio bringup speaker config zhangguangshuai 20230627 end -->
+        <!-- BSP.AUDIO - 2023.07.18 - modify to Single mic, speaker test start -->
+        <path name="top_ext_speaker_output" value="turnon">
+            <kctl name="Ext_Speaker_Amp Switch" value="1" />
+            <kctl name="aw87xxx_profile_switch_0" value="Off" />
+            <kctl name="aw87xxx_profile_switch_1" value="Music" />
+            <kctl name="FSM_Scene" value="7" />
+            <kctl name="FSM_Amp_Switch" value="On" />
+        </path>
+        <path name="top_ext_speaker_output" value="turnoff">
+            <kctl name="aw87xxx_profile_switch_0" value="Off" />
+            <kctl name="aw87xxx_profile_switch_1" value="Off" />
+            <kctl name="FSM_Amp_Switch" value="Off" />
+            <kctl name="Ext_Speaker_Amp Switch" value="0" />
+        </path>
+        <path name="bottom_ext_speaker_output" value="turnon">
+            <kctl name="Ext_Speaker_Amp Switch" value="1" />
+            <kctl name="aw87xxx_profile_switch_0" value="Music" />
+            <kctl name="aw87xxx_profile_switch_1" value="Off" />
+            <kctl name="FSM_Scene" value="13" />
+            <kctl name="FSM_Amp_Switch" value="On" />
+        </path>
+        <path name="bottom_ext_speaker_output" value="turnoff">
+            <kctl name="aw87xxx_profile_switch_0" value="Off" />
+            <kctl name="aw87xxx_profile_switch_1" value="Off" />
+            <kctl name="FSM_Amp_Switch" value="Off" />
+            <kctl name="Ext_Speaker_Amp Switch" value="0" />
+        </path>
+        <!-- BSP.AUDIO - 2023.07.18 - modify to Single mic, speaker test end -->
         <!--mic setting-->
         <path name="builtin_Mic_Mic1" value="turnon">
             <kctl name="ADC L Mux" value="Left Preamplifier" />
@@ -699,12 +738,16 @@
             <kctl name="HW_GAIN1_IN_CH2 CONNSYS_I2S_CH2" value="1" />
             <kctl name="ADDA_DL_CH1 GAIN1_OUT_CH1" value="1" />
             <kctl name="ADDA_DL_CH2 GAIN1_OUT_CH2" value="1" />
+            <kctl name="UL2_CH1 GAIN1_OUT_CH1" value="1" />
+            <kctl name="UL2_CH2 GAIN1_OUT_CH2" value="1" />
         </path>
         <path name="CONNSYS_TO_ADDA_DL" value="turnoff">
             <kctl name="HW_GAIN1_IN_CH1 CONNSYS_I2S_CH1" value="0" />
             <kctl name="HW_GAIN1_IN_CH2 CONNSYS_I2S_CH2" value="0" />
             <kctl name="ADDA_DL_CH1 GAIN1_OUT_CH1" value="0" />
             <kctl name="ADDA_DL_CH2 GAIN1_OUT_CH2" value="0" />
+            <kctl name="UL2_CH1 GAIN1_OUT_CH1" value="0" />
+            <kctl name="UL2_CH2 GAIN1_OUT_CH2" value="0" />
         </path>
         <path name="CONNSYS_TO_I2S1" value="turnon">
             <kctl name="HW_GAIN1_IN_CH1 CONNSYS_I2S_CH1" value="1" />
@@ -975,8 +1018,6 @@
             <kctl name="HW_SRC_1_IN_CH2 DL3_CH2" value="1" />
             <kctl name="HW_SRC_1_IN_CH1 DL6_CH1" value="1" />
             <kctl name="HW_SRC_1_IN_CH2 DL6_CH2" value="1" />
-            <kctl name="HW_SRC_1_IN_CH1 HW_GAIN1_OUT_CH1" value="1" />
-            <kctl name="HW_SRC_1_IN_CH2 HW_GAIN1_OUT_CH2" value="1" />
             <kctl name="UL2_CH1 SRC_1_OUT_CH1" value="1" />
             <kctl name="UL2_CH2 SRC_1_OUT_CH2" value="1" />
         </path>
@@ -989,8 +1030,6 @@
             <kctl name="HW_SRC_1_IN_CH2 DL3_CH2" value="0" />
             <kctl name="HW_SRC_1_IN_CH1 DL6_CH1" value="0" />
             <kctl name="HW_SRC_1_IN_CH2 DL6_CH2" value="0" />
-            <kctl name="HW_SRC_1_IN_CH1 HW_GAIN1_OUT_CH1" value="0" />
-            <kctl name="HW_SRC_1_IN_CH2 HW_GAIN1_OUT_CH2" value="0" />
             <kctl name="UL2_CH1 SRC_1_OUT_CH1" value="0" />
             <kctl name="UL2_CH2 SRC_1_OUT_CH2" value="0" />
         </path>
@@ -1264,13 +1303,27 @@
             <kctl name="UL5_CH1 ADDA_UL_CH1" value="0" />
             <kctl name="UL5_CH2 ADDA_UL_CH2" value="0" />
         </path>
+        <!--BSP.AUDIO - 2023.07.13 - modify to bring up UltraSound Sensor start-->
         <path name="ultrasound-proximity" value="turnon">
+            <!--N6 code for HQ-311375 by wangziru at 20230808 start-->
+            <kctl name="Ultrasound Mode" value="2471" />
+            <!--N6 code for HQ-311375 by wangziru at 20230808 end-->
+            <kctl name="Ultrasound Log Level" value="7" />
         </path>
         <path name="ultrasound-proximity" value="turnoff">
+            <kctl name="Ultrasound Mode" value="2471" />
+            <kctl name="Ultrasound Log Level" value="7" />
         </path>
         <path name="ultrasound-proximity-speaker" value="turnon">
+            <!--N6 code for HQ-323146 by wangziru at 20230828 start-->
+            <kctl name="Ultrasound Mode" value="2472" />
+            <!--N6 code for HQ-323146 by wangziru at 20230828 end-->
+            <kctl name="Ultrasound Log Level" value="7" />
         </path>
         <path name="ultrasound-proximity-speaker" value="turnoff">
+            <kctl name="Ultrasound Mode" value="2472" />
+            <kctl name="Ultrasound Log Level" value="7" />
         </path>
+        <!--BSP.AUDIO - 2023.07.13 - modify to bring up UltraSound Sensor end-->
     </mixercontrol>
 </root>
