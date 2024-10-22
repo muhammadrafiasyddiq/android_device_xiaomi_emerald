@@ -45,6 +45,7 @@ AB_OTA_PARTITIONS += \
     logo \
     mcupm \
     md1img \
+    odm_dlkm \
     pi_img \
     preloader_raw \
     product \
@@ -58,6 +59,7 @@ AB_OTA_PARTITIONS += \
     vbmeta_system \
     vbmeta_vendor \
     vendor \
+    vendor_dlkm \
     vendor_boot
 
 # Assertation
@@ -166,16 +168,22 @@ BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_USES_ODM_DLKIMAGE := true
+BOARD_USES_VENDOR_DLKMIMAGE := true
+BOARD_ODM_DLKMIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_VENDOR_DLKMIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # Partitions Option
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 TARGET_COPY_OUT_PRODUCT := product
+TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
+TARGET_COPY_OUT_ODM_DLKM := odm_dlkm
 
 # Partitions (Dynamic)
 BOARD_XIAOMI_DYNAMIC_PARTITIONS_SIZE := 9122611200
-BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST := system_ext product vendor system
+BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST := system_ext product vendor system vendor_dlkm odm_dlkm
 BOARD_SUPER_PARTITION_SIZE := 9126805504
 BOARD_SUPER_PARTITION_GROUPS := xiaomi_dynamic_partitions
 
