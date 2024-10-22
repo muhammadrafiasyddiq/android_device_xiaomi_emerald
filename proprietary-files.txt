@@ -958,10 +958,12 @@ vendor/lib64/vendor.mediatek.hardware.clientapi@1.0.so
 vendor/lib/libsensorndkbridge.so
 vendor/lib64/hw/android.hardware.sensors@2.X-subhal-mediatek.so
 vendor/lib64/hw/sensors.mediatek.V2.0.so
+vendor/lib64/hw/sensors.elliptic.so
 vendor/lib64/libhfmanager.so
 vendor/lib64/libhfmanagerwrapper.so
 vendor/lib64/libksensor.so
 vendor/lib64/libsensorndkbridge.so
+vendor/lib64/libnotifyaudiohal.so
 vendor/lib64/sensors.touch.detect.so
 
 # Secure Element
