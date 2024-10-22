@@ -1,0 +1,5 @@
+type system_mtk_ims_vt_signalstrength_prop, property_type, extended_core_property_type, system_property_type, system_internal_property_type;
+
+
+allow radio system_mtk_ims_vt_signalstrength_prop:property_service { set };
+allow radio system_mtk_ims_vt_signalstrength_prop:file { read getattr open map };

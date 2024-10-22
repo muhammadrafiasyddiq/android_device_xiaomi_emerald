@@ -1,0 +1,133 @@
+#
+#
+# For special ro override property
+
+#support dual wifi feature
+ro.vendor.net.enable_dual_wifi=1
+
+# prop for cabc
+ro.vendor.cabc.enable=true
+
+# Bluetooth
+
+
+# Blur
+ro.surface_flinger.supports_background_blur=1
+
+# Disable blur on app launch
+ro.launcher.blur.appLaunch=1
+
+# RIL
+# 5g capability(0: not support 1:nsa 2:sa 3: 1+2)
+
+
+#RIL
+ro.vendor.radio.features_common=2
+vendor.rild.libpath=mtk-ril.so
+vendor.rild.libargs=-d /dev/ttyC0
+
+# SLA
+ro.vendor.net.enable_sla=1
+
+# Media
+media.stagefright.thumbnail.prefer_hw_codecs=true
+
+# WiFi
+wifi.interface=wlan0
+ro.mediatek.wlan.wsc=1
+ro.mediatek.wlan.p2p=1
+mediatek.wlan.ctia=0
+wifi.tethering.interface=ap0
+wifi.direct.interface=p2p0
+
+# USB
+ro.sys.usb.mtp.whql.enable=0
+ro.sys.usb.storage.type=mtp
+ro.sys.usb.bicr=no
+ro.sys.usb.charging.only=yes
+
+# VoLTE
+persist.dbg.allow_ims_off=1
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
+persist.dbg.wfc_avail_ovr=1
+
+# MTK vendor
+ro.vendor.mtk_omacp_support=1
+ro.vendor.mtk_flv_playback_support=1
+ro.vendor.mtk_telephony_add_on_policy=0
+
+# audio
+ro.camera.sound.forced=0
+ro.audio.silent=0
+
+# Kernel
+ro.kernel.zio=38,108,105,16
+
+# Display
+ro.sf.lcd_density=440
+sys.displayfeature_hidl=true
+
+# performance
+ro.mtk_perf_simple_start_win=1
+ro.mtk_perf_fast_start_win=1
+ro.mtk_perf_response_time=1
+
+#logd buffer size
+ro.logd.size=2M
+
+#disable mtk aggressive_dex2oat
+pm.dexopt.aggressive_dex2oat.enable=false
+
+#sysprop for thermal
+vendor.sys.thermal.data.path=/data/vendor/thermal/
+
+# displayfeature and displayfeatureservice use it to debug pq effect
+vendor.displayfeature.entry.enable=true
+
+#system property for HBM mode
+vendor.hbm.enable=true
+
+#system prop for dc backlight
+persist.vendor.dc_backlight.enable=false
+
+#property for display fps switch
+persist.vendor.power.dfps.level=0
+
+#support night charge property
+persist.vendor.night.charge=true
+
+#For Test Factory Whether Calibrated
+#ACC/GYRO/ALS/PS/ALS_DARK/LUX_B/SAR/SAR_SECONDARY/...MAX_NUM=15
+persist.vendor.sensor.cali_sensor=111001100000000
+
+# gralloc4 log
+persist.log.tag.gralloc4=S
+
+# Memory Optimization
+ro.config.dha_cached_min=16
+ro.config.dha_cached_max=32
+
+# Thermal Management
+ro.mtk_thermal_monitor.enabled=true
+persist.thermal_config.mitigation=1
+
+# Thermal Configuration
+ro.config.thermal_limit=75
+ro.config.thermal_dcs=40
+
+# Cached app compaction
+persist.device_config.activity_manager.use_compaction=true
+
+# Lmk Properties
+ro.lmk.critical=0
+ro.lmk.critical_upgrade=false
+ro.lmk.use_minfree_levels=true
+ro.lmk.upgrade_pressure=50
+ro.lmk.downgrade_pressure=75
+ro.lmk.thrashing_limit=30
+ro.lmk.thrashing_limit_decay=50
+ro.config.low_ram=false
+ro.lmk.use_psi=true
+ro.lmk.kill_heaviest_task=false
+ro.lmk.swap_free_low_percentage=10

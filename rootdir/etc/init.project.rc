@@ -1,0 +1,189 @@
+import /vendor/etc/init/hw/init.mtkgki.rc
+
+# MTK project .rc configure
+
+# L19A code for HQ-194398 by lukuan at 2022.4.24 start
+import /vendor/odm/etc/init/${ro.boot.product.hardware.sku}/android.hardware.nfc@1.2-service.rc
+import /vendor/odm/etc/init/${ro.boot.product.hardware.sku}/android.hardware.secure_element@1.2-service-mediatek.rc
+# L19A code for HQ-194398 by lukuan at 2022.4.24 end
+
+on init
+    mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
+    mkdir /storage/usbotg 0700 root root
+
+on post-fs-data
+
+# L19A code for HQ-202127 by zhangbing at 2022/04/13 start
+    chmod 0666 /dev/sia81xx_tuning_if
+    chown system audio /dev/sia81xx_tuning_if
+# L19A code for HQ-202127 by zhangbing at 2022/04/13 end
+
+#Camera
+    chmod 0660 /dev/MAINAF
+    chown system camera /dev/MAINAF
+
+    chmod 0660 /dev/MAINAF2
+    chown system camera /dev/MAINAF2
+
+    chmod 0660 /dev/SUBAF
+    chown system camera /dev/SUBAF
+
+    chmod 0660 /dev/GAF001AF
+    chown system camera /dev/GAF001AF
+
+    chmod 0660 /dev/DW9714AF
+    chown system camera /dev/DW9714AF
+
+    chmod 0660 /dev/LC898212AF
+    chown system camera /dev/LC898212AF
+
+    chmod 0660 /dev/BU64745GWZAF
+    chown system camera /dev/BU64745GWZAF
+
+#dual calib
+    chmod 0777 /mnt/vendor/persist
+    mkdir /vendor/etc/camera 0777 system camera
+    mkdir /data/vendor/camera/ 0777 system camera
+    mkdir /mnt/vendor/persist/camera 0777 system camera
+    chmod 0777 /mnt/vendor/persist/camera/rear_dc_cal_wd.bin
+    chmod 0777 /data/vendor/camera/rear_dc_cal_wd.bin
+
+    chown system system /data/vendor/camera/golden_rear_dc_cal_wd.bin
+    chmod 0777 /data/vendor/camera/golden_rear_dc_cal_wd.bin
+# L19A code for HQ-194090 by guquanding at 20220509 start
+    chmod 0777 /vendor/etc/camera/golden_s5kjn1_i_ov02b1b_i.bin
+    chmod 0777 /vendor/etc/camera/golden_s5kjn1_ii_sc202cs_ii.bin
+# L19A code for HQ-194090 by guquanding at 20220509 end
+
+#SMB
+    chown system system /proc/smb/ScreenComm
+    chmod 0660 /proc/smb/ScreenComm
+
+    chmod 0660 /dev/spm
+    chown system system /dev/spm
+
+#TP
+     mkdir /data/vendor/focaltech
+     copy /vendor/firmware/focaltech_mp_fw_tianma.ini /data/vendor/focaltech/focaltech_mp_fw_tianma.ini
+     chown system system /data/vendor/focaltech/focaltech_mp_fw_tianma.ini
+     chmod 0660 /data/vendor/focaltech/focaltech_mp_fw_tianma.ini
+#L19A code for HQ-234958 by baoguangxiu at 2022/10/20 start
+#touch
+    chown system system /sys/class/touch/touch_dev/palm_sensor
+#L19A code for HQ-234958 by baoguangxiu at 2022/10/20 end
+#finggerprint
+    chown system system /dev/goodix_fp
+    chmod 0644 /dev/goodix_fp
+    chown system system /sys/bus/platform/devices/fingerprint/clk_enable
+    chmod 0660 /sys/bus/platform/devices/fingerprint/clk_enable
+    chown system /sys/bus/platform/devices/fingerprint/irq
+    chmod 0660 /sys/bus/platform/devices/fingerprint/irq
+    chown system system /sys/bus/platform/devices/fingerprint/hw_reset
+    chmod 0660 /sys/bus/platform/devices/fingerprint/hw_reset
+    chown system system /sys/bus/platform/devices/fingerprint/wakeup_enable
+    chmod 0660 /sys/bus/platform/devices/fingerprint/wakeup_enable
+    chown system system /sys/bus/platform/devices/fingerprint/fingerdown_wait
+    chmod 0660 /sys/bus/platform/devices/fingerprint/fingerdown_wait
+
+on init
+    # Refer to http://source.android.com/devices/tech/storage/index.html
+    # It said, "Starting in Android 4.4, multiple external storage devices are surfaced to developers through
+    #           Context.getExternalFilesDirs(), Context.getExternalCacheDirs(), and Context.getObbDirs().
+    #           External storage devices surfaced through these APIs must be a semi-permanent part of the device (such as an SD card slot in a battery compartment).
+    #           Developers expect data stored in these locations to be available over long periods of time."
+    # Therefore, if the target doesn't support sd hot-plugging (Ex: the SD card slot in a battery compartment), we need to export SECONDARY_STORAGE in 'boot' section
+    #
+    # export SECONDARY_STORAGE /storage/sdcard1
+
+service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
+    class late_start
+    disabled
+
+#L19A-T code for HQ-234981 add by qianxiaoming at 2022/11/30 start
+service panel-info-sh /system/vendor/bin/sh /vendor/bin/init.panel_info.sh
+    class main
+    user root
+    oneshot
+    group root system
+    seclabel u:r:meta_tst:s0
+
+# start mmstat
+on property:sys.boot_completed=1
+    mkdir /sys/kernel/tracing/instances/mmstat 711
+    write /sys/kernel/tracing/instances/mmstat/tracing_on 0
+    write /sys/kernel/tracing/instances/mmstat/buffer_size_kb 16
+    write /sys/kernel/tracing/instances/mmstat/events/mmstat/enable 1
+    write /sys/kernel/tracing/instances/mmstat/tracing_on 1
+
+    start panel-info-sh
+#L19A-T code for HQ-234981 add by qianxiaoming at 2022/11/30 end
+
+#L19A code for HQ-199659 add by qianxiaoming at 2022/4/26
+service setsarcal /system/vendor/bin/setsarcal.sh
+    class main
+    user root
+    oneshot
+    group root system
+    seclabel u:r:meta_tst:s0
+
+#L19A code for HQ-213313 by qianxiaoming at 2022/5/27 start
+service service_nv_protect /vendor/bin/misc_writer --nv_protect
+    disabled
+    oneshot
+
+on property:vendor.service_nv_protect=start
+    start service_nv_protect
+#L19A code for HQ-213313 by qianxiaoming at 2022/5/27 end
+
+#L19A-T code for HQ-256400 add by qianxiaoming at 2022/10/18 start
+#Touch
+on property:sys.tp.grip_enable=0
+    write /proc/nvt_edge_reject_switch 1
+
+on property:sys.tp.grip_enable=90
+    write /proc/nvt_edge_reject_switch 3
+
+on property:sys.tp.grip_enable=270
+    write /proc/nvt_edge_reject_switch 2
+
+#Touch2
+on property:sys.tp.grip_enable=0
+    write /sys/devices/platform/soc/1100a000.spi0/spi_master/spi0/spi0.1/fts_edge_mode 0
+
+on property:sys.tp.grip_enable=90
+    write /sys/devices/platform/soc/1100a000.spi0/spi_master/spi0/spi0.1/fts_edge_mode 1
+
+on property:sys.tp.grip_enable=270
+    write /sys/devices/platform/soc/1100a000.spi0/spi_master/spi0/spi0.1/fts_edge_mode 2
+#L19A-T code for HQ-256400 add by qianxiaoming at 2022/10/18 end
+
+  # AudioDump
+    mkdir /data/vendor/audiohal 0771 system audio
+    mkdir /data/vendor/audiohal/audio_param 0771 system audio
+
+on init
+    insmod /vendor/lib/modules/millet_core.ko
+    insmod /vendor/lib/modules/binder_gki.ko
+    insmod /vendor/lib/modules/millet_binder.ko
+    insmod /vendor/lib/modules/millet_hs.ko
+    insmod /vendor/lib/modules/millet_pkg.ko
+    insmod /vendor/lib/modules/millet_sig.ko
+    insmod /vendor/lib/modules/millet_oem_cgroup.ko
+    
+# DT2W
+on boot
+    chmod 0666 /system/bin/sendevent
+    chmod 0666 /dev/input/event4
+    chmod 0666 /dev/input/event3
+    exec - root -- /vendor/bin/init.panel_info.sh
+on property:persist.sys.MT6789.dt2w=0 && property:vendor.panel.touch_vendor=3
+    exec - root -- /system/bin/sendevent /dev/input/event4 0 1 4
+
+on property:persist.sys.MT6789.dt2w=1 && property:vendor.panel.touch_vendor=3
+    exec - root -- /system/bin/sendevent /dev/input/event4 0 1 5
+
+on property:persist.sys.MT6789.dt2w=1 && property:vendor.panel.touch_vendor=4
+    exec - root -- /system/bin/sendevent /dev/input/event3 0 1 5
+
+on property:persist.sys.MT6789.dt2w=0 && property:vendor.panel.touch_vendor=4
+    exec - root -- /system/bin/sendevent /dev/input/event3 0 1 4

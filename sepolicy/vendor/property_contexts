@@ -1,0 +1,33 @@
+# Audio
+vendor.audiomediatek. u:object_r:vendor_audioserver_prop:s0
+
+# Camera
+vendor.camera. u:object_r:vendor_mtk_camera_prop:s0
+persist.camera.dualcal.state u:object_r:vendor_mtk_camera_prop:s0
+persist.vendor.camera. u:object_r:vendor_mtk_camera_prop:s0
+
+# Display
+persist.vendor.video.dfps.level u:object_r:vendor_displayfeature_prop:s0
+persist.vendor.dfps.level u:object_r:vendor_displayfeature_prop:s0
+persist.vendor.power.dfps.level u:object_r:vendor_displayfeature_prop:s0
+ro.vendor.sdr2hdr.by.layer.support u:object_r:vendor_displayfeature_prop:s0
+ro.vendor.standard.video.enable u:object_r:vendor_displayfeature_prop:s0
+vendor.hbm.enable u:object_r:vendor_displayfeature_prop:s0
+
+# Mi thermald properties
+vendor.sys.thermal.data.path u:object_r:vendor_thermal_normal_prop:s0
+
+# Sensors
+persist.vendor.sensor. u:object_r:vendor_mtk_sensor_prop:s0
+
+# FP
+persist.vendor.sys.fp.uid u:object_r:vendor_fp_prop:s0
+persist.vendor.sys.fp.vendor u:object_r:vendor_fp_prop:s0
+sys.fp.vendor u:object_r:vendor_fp_prop:s0
+vendor.panel.color  u:object_r:vendor_fp_prop:s0
+vendor.panel.display       u:object_r:vendor_fp_prop:s0
+vendor.panel.touch_vendor  u:object_r:vendor_fp_prop:s0
+vendor.panel.vendor        u:object_r:vendor_fp_prop:s0
+
+# VT
+vendor.ims.vt.signalstrength.    u:object_r:system_mtk_ims_vt_signalstrength_prop:s0

@@ -1,0 +1,16 @@
+type vendor_fingerprint_data_file, file_type, data_file_type;
+
+allow hal_fingerprint_default hal_power_hwservice:hwservice_manager { find add };
+
+allow hal_fingerprint_default { mtee_trusty_file sysfs_gpu sysfs_pmu sysfs_dvfsrc_dbg }:dir r_dir_perms;
+
+allow hal_fingerprint_default { mtee_trusty_file sysfs_gpu sysfs_pmu sysfs_dvfsrc_dbg }:file r_file_perms;
+
+allow hal_fingerprint_default vendor_fingerprint_data_file:file rw_file_perms;
+allow hal_fingerprint_default vendor_hal_fingerprint_hwservice_xiaomi:hwservice_manager { find add };
+allow init hal_fingerprint_default:process { ptrace };
+
+
+
+binder_call(hal_fingerprint_default, mtk_hal_power)
+set_prop(hal_fingerprint_default, vendor_fp_prop)

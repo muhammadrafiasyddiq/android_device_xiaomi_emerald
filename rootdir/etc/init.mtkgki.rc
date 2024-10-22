@@ -1,0 +1,38 @@
+service insmod_sh /vendor/bin/init.insmod.sh /vendor/etc/init.insmod.${ro.hardware}.cfg
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+    
+# FPSGO    
+service fpsgo /vendor/bin/fpsgo
+    class main
+    user system
+    group system readproc wifi media media_rw camera audio
+    
+    
+on early-init
+    setprop vendor.all.modules.ready 0
+    write /proc/bootprof "modprobe: Load_Module_START"
+    start insmod_sh
+    
+on boot
+    start fpsgo
+# load gps_pwr
+on property:vendor.connsys.driver.ready=yes
+  insmod /vendor/lib/modules/gps_pwr.ko
+  
+  # load gps_drv
+on property:vendor.connsys.driver.ready=yes
+  insmod /vendor/lib/modules/${ro.vendor.gps.chrdev}.ko
+
+# LOAD BT_DRV
+on property:vendor.connsys.driver.ready=yes
+  insmod /vendor/lib/modules/bt_drv_${ro.vendor.bt.platform}.ko
+  chown bluetooth bluetooth /proc/driver/bt_dbg
+on property:vendor.connsys.driver.ready=no
+  insmod /vendor/lib/modules/bt_drv_${ro.vendor.bt.platform}.ko
+  chown bluetooth bluetooth /proc/driver/bt_dbg
+
+

@@ -1,0 +1,2478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<carrier_config_list>
+    <carrier_config>
+        <boolean
+            name="hide_lte_plus_data_icon_bool"
+            value="false" />
+        <int
+            name="lte_plus_threshold_bandwidth_khz_int"
+            value="0" />
+    </carrier_config>
+    <carrier_config
+        mcc="1"
+        mnc="0">
+        <boolean
+            name="show_apn_setting_cdma_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="204"
+        mnc="69">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        mcc="206"
+        mnc="8">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        mcc="231"
+        mnc="3">
+        <boolean
+            name="carrier_default_wfc_ims_roaming_enabled_bool"
+            value="true" />
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="232"
+        mnc="17">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="238"
+        mnc="77">
+        <int-array
+            name="mtk_skip_roaming_data_on_iwlan_apn_types_int_array"
+            num="2">
+            <item
+                value="2" />
+            <item
+                value="2048" />
+        </int-array>
+    </carrier_config>
+    <carrier_config
+        mcc="250"
+        mnc="35">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        mcc="268"
+        mnc="93">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+        <boolean
+            name="editable_wfc_mode_bool"
+            value="false" />
+    </carrier_config>
+    <carrier_config
+        mcc="268"
+        mnc="97">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+        <boolean
+            name="editable_wfc_mode_bool"
+            value="false" />
+    </carrier_config>
+    <carrier_config
+        mcc="268"
+        mnc="98">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+        <boolean
+            name="editable_wfc_mode_bool"
+            value="false" />
+    </carrier_config>
+    <carrier_config
+        mcc="268"
+        mnc="99">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+        <boolean
+            name="editable_wfc_mode_bool"
+            value="false" />
+    </carrier_config>
+    <carrier_config
+        mcc="310"
+        mnc="0">
+        <boolean
+            name="mtk_key_roaming_bar_guard_bool"
+            value="true" />
+        <boolean
+            name="ignore_rtt_mode_setting_bool"
+            value="true" />
+        <int
+            name="cdma_3waycall_flash_delay_int"
+            value="300" />
+        <boolean
+            name="rtt_supported_bool"
+            value="true" />
+        <boolean
+            name="rtt_supported_for_vt_bool"
+            value="false" />
+        <boolean
+            name="rtt_upgrade_supported_bool"
+            value="true" />
+        <boolean
+            name="rtt_downgrade_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_rtt_video_switch_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_rtt_auto_accept_request_bool"
+            value="true" />
+        <boolean
+            name="mtk_multi_rtt_calls_supported_bool"
+            value="true" />
+        <boolean
+            name="carrier_volte_tty_supported_bool"
+            value="false" />
+        <string-array
+            name="read_only_apn_types_string_array"
+            num="0" />
+        <boolean
+            name="call_forwarding_when_unreachable_supported_bool"
+            value="false" />
+        <boolean
+            name="editable_wfc_roaming_mode_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="310"
+        mnc="4">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+        <boolean
+            name="editable_wfc_mode_bool"
+            value="false" />
+        <boolean
+            name="editable_wfc_roaming_mode_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="310"
+        mnc="5">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+        <boolean
+            name="editable_wfc_mode_bool"
+            value="false" />
+        <boolean
+            name="editable_wfc_roaming_mode_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="310"
+        mnc="6">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+        <boolean
+            name="editable_wfc_mode_bool"
+            value="false" />
+        <boolean
+            name="editable_wfc_roaming_mode_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="310"
+        mnc="9">
+        <boolean
+            name="mtk_key_roaming_bar_guard_bool"
+            value="true" />
+        <string-array
+            name="read_only_apn_types_string_array"
+            num="0" />
+        <boolean
+            name="additional_settings_call_waiting_visibility_bool"
+            value="false" />
+        <boolean
+            name="call_forwarding_when_unreachable_supported_bool"
+            value="false" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <boolean
+            name="rtt_supported_bool"
+            value="true" />
+        <boolean
+            name="rtt_auto_upgrade_bool"
+            value="false" />
+        <boolean
+            name="rtt_supported_for_vt_bool"
+            value="false" />
+        <boolean
+            name="rtt_upgrade_supported_bool"
+            value="true" />
+        <boolean
+            name="rtt_downgrade_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_rtt_video_switch_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_rtt_auto_accept_request_bool"
+            value="true" />
+        <boolean
+            name="mtk_multi_rtt_calls_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_mt_rtt_without_precondition_bool"
+            value="false" />
+        <boolean
+            name="editable_wfc_roaming_mode_bool"
+            value="true" />
+        <boolean
+            name="editable_wfc_mode_bool"
+            value="false" />
+    </carrier_config>
+    <carrier_config
+        mcc="310"
+        mnc="53">
+        <boolean
+            name="mtk_key_add_mnoapns_into_allapnlist"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="310"
+        mnc="90">
+        <boolean
+            name="mtk_domestic_roaming_enabled_only_by_mobile_data_setting"
+            value="true" />
+        <boolean
+            name="mtk_intl_roaming_enabled_only_by_roaming_data_setting"
+            value="true" />
+        <boolean
+            name="mtk_key_carrier_need_show_roaming_icon"
+            value="false" />
+        <string-array
+            name="carrier_metered_apn_types_strings"
+            num="3">
+            <item
+                value="default" />
+            <item
+                value="dun" />
+            <item
+                value="supl" />
+        </string-array>
+        <string-array
+            name="carrier_metered_roaming_apn_types_strings"
+            num="3">
+            <item
+                value="default" />
+            <item
+                value="dun" />
+            <item
+                value="supl" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="310"
+        mnc="150">
+        <boolean
+            name="ignore_rtt_mode_setting_bool"
+            value="true" />
+        <boolean
+            name="rtt_supported_bool"
+            value="true" />
+        <boolean
+            name="allow_merging_rtt_calls_bool"
+            value="true" />
+        <boolean
+            name="rtt_supported_for_vt_bool"
+            value="false" />
+        <boolean
+            name="rtt_upgrade_supported_bool"
+            value="true" />
+        <boolean
+            name="rtt_downgrade_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_rtt_video_switch_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_rtt_auto_accept_request_bool"
+            value="true" />
+        <boolean
+            name="mtk_multi_rtt_calls_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_rtt_audio_indication_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_key_carrier_need_show_roaming_icon"
+            value="false" />
+        <string-array
+            name="roaming_operator_string_array"
+            num="5">
+            <item
+                value="310110" />
+            <item
+                value="310140" />
+            <item
+                value="310400" />
+            <item
+                value="310470" />
+            <item
+                value="311170" />
+        </string-array>
+        <string-array
+            name="non_roaming_operator_string_array"
+            num="7">
+            <item
+                value="310" />
+            <item
+                value="311" />
+            <item
+                value="312" />
+            <item
+                value="313" />
+            <item
+                value="314" />
+            <item
+                value="315" />
+            <item
+                value="316" />
+        </string-array>
+        <boolean
+            name="carrier_name_override_bool"
+            value="true" />
+        <string
+            name="carrier_name_string">AT&amp;T</string>
+        <boolean
+            name="mtk_domestic_roaming_enabled_only_by_mobile_data_setting"
+            value="true" />
+        <boolean
+            name="mtk_intl_roaming_enabled_only_by_roaming_data_setting"
+            value="true" />
+        <string-array
+            name="carrier_metered_apn_types_strings"
+            num="3">
+            <item
+                value="default" />
+            <item
+                value="dun" />
+            <item
+                value="supl" />
+        </string-array>
+        <string-array
+            name="carrier_metered_roaming_apn_types_strings"
+            num="3">
+            <item
+                value="default" />
+            <item
+                value="dun" />
+            <item
+                value="supl" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        gid1="6230"
+        mcc="310"
+        mnc="240">
+        <boolean
+            name="mtk_key_roaming_bar_guard_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="310"
+        mnc="410">
+        <boolean
+            name="rtt_supported_bool"
+            value="true" />
+        <boolean
+            name="ignore_rtt_mode_setting_bool"
+            value="true" />
+        <boolean
+            name="allow_merging_rtt_calls_bool"
+            value="true" />
+        <boolean
+            name="rtt_supported_for_vt_bool"
+            value="false" />
+        <boolean
+            name="rtt_upgrade_supported_bool"
+            value="true" />
+        <boolean
+            name="rtt_downgrade_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_rtt_video_switch_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_rtt_auto_accept_request_bool"
+            value="true" />
+        <boolean
+            name="mtk_multi_rtt_calls_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_rtt_audio_indication_supported_bool"
+            value="true" />
+        <boolean
+            name="carrier_volte_tty_supported_bool"
+            value="false" />
+        <boolean
+            name="mtk_key_carrier_need_show_roaming_icon"
+            value="false" />
+        <string-array
+            name="roaming_operator_string_array"
+            num="5">
+            <item
+                value="310110" />
+            <item
+                value="310140" />
+            <item
+                value="310400" />
+            <item
+                value="310470" />
+            <item
+                value="311170" />
+        </string-array>
+        <string-array
+            name="non_roaming_operator_string_array"
+            num="7">
+            <item
+                value="310" />
+            <item
+                value="311" />
+            <item
+                value="312" />
+            <item
+                value="313" />
+            <item
+                value="314" />
+            <item
+                value="315" />
+            <item
+                value="316" />
+        </string-array>
+        <boolean
+            name="mtk_domestic_roaming_enabled_only_by_mobile_data_setting"
+            value="true" />
+        <boolean
+            name="mtk_intl_roaming_enabled_only_by_roaming_data_setting"
+            value="true" />
+        <string-array
+            name="carrier_metered_apn_types_strings"
+            num="3">
+            <item
+                value="default" />
+            <item
+                value="dun" />
+            <item
+                value="supl" />
+        </string-array>
+        <string-array
+            name="carrier_metered_roaming_apn_types_strings"
+            num="3">
+            <item
+                value="default" />
+            <item
+                value="dun" />
+            <item
+                value="supl" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="310"
+        mnc="630">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        mcc="310"
+        mnc="830">
+        <boolean
+            name="mtk_key_add_mnoapns_into_allapnlist"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="310"
+        mnc="950">
+        <boolean
+            name="rtt_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_domestic_roaming_enabled_only_by_mobile_data_setting"
+            value="true" />
+        <boolean
+            name="mtk_intl_roaming_enabled_only_by_roaming_data_setting"
+            value="true" />
+        <boolean
+            name="support_video_conference_call_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="311"
+        mnc="0">
+        <boolean
+            name="use_otasp_for_provisioning_bool"
+            value="true" />
+        <string
+            name="mtk_key_otasp_call_number_string">*228</string>
+        <int
+            name="cdma_3waycall_flash_delay_int"
+            value="300" />
+        <boolean
+            name="call_forwarding_when_unreachable_supported_bool"
+            value="false" />
+    </carrier_config>
+    <carrier_config
+        mcc="311"
+        mnc="3">
+        <int
+            name="cdma_3waycall_flash_delay_int"
+            value="300" />
+        <boolean
+            name="rtt_supported_bool"
+            value="true" />
+        <boolean
+            name="rtt_supported_while_roaming_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="311"
+        mnc="180">
+        <boolean
+            name="rtt_supported_bool"
+            value="true" />
+        <boolean
+            name="ignore_rtt_mode_setting_bool"
+            value="true" />
+        <boolean
+            name="allow_merging_rtt_calls_bool"
+            value="true" />
+        <boolean
+            name="rtt_supported_for_vt_bool"
+            value="false" />
+        <boolean
+            name="rtt_upgrade_supported_bool"
+            value="true" />
+        <boolean
+            name="rtt_downgrade_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_rtt_video_switch_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_rtt_auto_accept_request_bool"
+            value="true" />
+        <boolean
+            name="mtk_multi_rtt_calls_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_rtt_audio_indication_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_domestic_roaming_enabled_only_by_mobile_data_setting"
+            value="true" />
+        <boolean
+            name="mtk_intl_roaming_enabled_only_by_roaming_data_setting"
+            value="true" />
+        <boolean
+            name="mtk_key_carrier_need_show_roaming_icon"
+            value="false" />
+        <string-array
+            name="carrier_metered_apn_types_strings"
+            num="3">
+            <item
+                value="default" />
+            <item
+                value="dun" />
+            <item
+                value="supl" />
+        </string-array>
+        <string-array
+            name="carrier_metered_roaming_apn_types_strings"
+            num="3">
+            <item
+                value="default" />
+            <item
+                value="dun" />
+            <item
+                value="supl" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="311"
+        mnc="260">
+        <boolean
+            name="mtk_key_add_mnoapns_into_allapnlist"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="311"
+        mnc="490">
+        <boolean
+            name="mtk_key_add_mnoapns_into_allapnlist"
+            value="true" />
+        <string
+            name="carrier_name_string">Sprint</string>
+        <string-array
+            name="read_only_apn_types_string_array"
+            num="0" />
+    </carrier_config>
+    <carrier_config
+        mcc="311"
+        mnc="650">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        mcc="311"
+        mnc="670">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        mcc="311"
+        mnc="830">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        mcc="311"
+        mnc="840">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        mcc="311"
+        mnc="880">
+        <boolean
+            name="mtk_key_add_mnoapns_into_allapnlist"
+            value="true" />
+        <string-array
+            name="read_only_apn_types_string_array"
+            num="0" />
+    </carrier_config>
+    <carrier_config
+        mcc="311"
+        mnc="940">
+        <boolean
+            name="mtk_key_add_mnoapns_into_allapnlist"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="312"
+        mnc="190">
+        <boolean
+            name="mtk_key_add_mnoapns_into_allapnlist"
+            value="true" />
+        <string-array
+            name="read_only_apn_types_string_array"
+            num="0" />
+    </carrier_config>
+    <carrier_config
+        mcc="312"
+        mnc="240">
+        <boolean
+            name="mtk_key_add_mnoapns_into_allapnlist"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="312"
+        mnc="250">
+        <boolean
+            name="mtk_key_add_mnoapns_into_allapnlist"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="312"
+        mnc="380">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        mcc="312"
+        mnc="430">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        mcc="312"
+        mnc="480">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        mcc="312"
+        mnc="530">
+        <boolean
+            name="mtk_key_add_mnoapns_into_allapnlist"
+            value="true" />
+        <string
+            name="carrier_name_string">Sprint</string>
+        <string-array
+            name="read_only_apn_types_string_array"
+            num="0" />
+    </carrier_config>
+    <carrier_config
+        mcc="312"
+        mnc="670">
+        <boolean
+            name="ignore_rtt_mode_setting_bool"
+            value="true" />
+        <boolean
+            name="rtt_supported_bool"
+            value="true" />
+        <boolean
+            name="allow_merging_rtt_calls_bool"
+            value="true" />
+        <boolean
+            name="rtt_supported_for_vt_bool"
+            value="false" />
+        <boolean
+            name="rtt_upgrade_supported_bool"
+            value="true" />
+        <boolean
+            name="rtt_downgrade_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_rtt_video_switch_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_rtt_auto_accept_request_bool"
+            value="true" />
+        <boolean
+            name="mtk_multi_rtt_calls_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_rtt_audio_indication_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_domestic_roaming_enabled_only_by_mobile_data_setting"
+            value="true" />
+        <boolean
+            name="mtk_intl_roaming_enabled_only_by_roaming_data_setting"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="313"
+        mnc="380">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        mcc="313"
+        mnc="390">
+        <boolean
+            name="ignore_rtt_mode_setting_bool"
+            value="true" />
+        <boolean
+            name="rtt_supported_bool"
+            value="true" />
+        <boolean
+            name="rtt_supported_for_vt_bool"
+            value="false" />
+        <boolean
+            name="rtt_upgrade_supported_bool"
+            value="true" />
+        <boolean
+            name="rtt_downgrade_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_rtt_video_switch_supported_bool"
+            value="true" />
+        <boolean
+            name="mtk_rtt_auto_accept_request_bool"
+            value="true" />
+        <boolean
+            name="mtk_multi_rtt_calls_supported_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="350"
+        mnc="0">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        mcc="420"
+        mnc="6">
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="420"
+        mnc="9">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+        <boolean
+            name="editable_wfc_mode_bool"
+            value="false" />
+    </carrier_config>
+    <carrier_config
+        mcc="424"
+        mnc="10">
+        <boolean
+            name="support_video_conference_call_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="425"
+        mnc="9">
+        <boolean
+            name="mtk_wos_flight_mode_support_bool"
+            value="false" />
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="7">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="8">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="50">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="51">
+        <boolean
+            name="mtk_resume_hold_call_after_active_call_end_by_remote"
+            value="true" />
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="53">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="54">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="55">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="56">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="70">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="71">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="72">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="73">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="74">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="75">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="76">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="77">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="78">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="79">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="80">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="81">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="82">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="83">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="84">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="85">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="86">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="88">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="440"
+        mnc="89">
+        <string-array
+            name="emergency_number_prefix_string_array"
+            num="2">
+            <item
+                value="184" />
+            <item
+                value="186" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        mcc="455"
+        mnc="2">
+        <boolean
+            name="mtk_allow_auto_start_timer_for_cancel_upgrade_bool"
+            value="true" />
+        <int
+            name="mtk_timer_for_cancel_upgrade_int"
+            value="30" />
+        <boolean
+            name="mtk_no_sip_message_on_pause_video_bool"
+            value="true" />
+        <boolean
+            name="mtk_allow_one_video_call_only_bool"
+            value="true" />
+        <boolean
+            name="allow_hold_video_call_bool"
+            value="false" />
+        <boolean
+            name="allow_add_call_during_video_call"
+            value="false" />
+        <boolean
+            name="mtk_key_vt_downgrade_in_bad_bitrate"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="455"
+        mnc="7">
+        <boolean
+            name="mtk_allow_auto_start_timer_for_cancel_upgrade_bool"
+            value="true" />
+        <int
+            name="mtk_timer_for_cancel_upgrade_int"
+            value="30" />
+        <boolean
+            name="mtk_no_sip_message_on_pause_video_bool"
+            value="true" />
+        <boolean
+            name="mtk_allow_one_video_call_only_bool"
+            value="true" />
+        <boolean
+            name="allow_hold_video_call_bool"
+            value="false" />
+        <boolean
+            name="allow_add_call_during_video_call"
+            value="false" />
+        <boolean
+            name="mtk_key_vt_downgrade_in_bad_bitrate"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="460"
+        mnc="12">
+        <boolean
+            name="mtk_allow_auto_start_timer_for_cancel_upgrade_bool"
+            value="true" />
+        <int
+            name="mtk_timer_for_cancel_upgrade_int"
+            value="30" />
+        <boolean
+            name="mtk_no_sip_message_on_pause_video_bool"
+            value="true" />
+        <boolean
+            name="mtk_allow_one_video_call_only_bool"
+            value="true" />
+        <boolean
+            name="allow_hold_video_call_bool"
+            value="false" />
+        <boolean
+            name="allow_add_call_during_video_call"
+            value="false" />
+        <int
+            name="mtk_test_sim_mtu_value_int"
+            value="1500" />
+    </carrier_config>
+    <carrier_config
+        mcc="460"
+        mnc="15">
+        <boolean
+            name="allow_add_call_during_video_call"
+            value="false" />
+        <boolean
+            name="allow_hold_video_call_bool"
+            value="false" />
+        <boolean
+            name="vilte_data_is_metered_bool"
+            value="false" />
+        <boolean
+            name="ignore_data_enabled_changed_for_video_calls"
+            value="true" />
+        <boolean
+            name="mtk_vt_dialpad_support_bool"
+            value="true" />
+        <boolean
+            name="mtk_vt_mt_ringtone_support_bool"
+            value="true" />
+        <boolean
+            name="mtk_vt_notification_ringtone_support_bool"
+            value="true" />
+        <boolean
+            name="mtk_no_sip_message_on_pause_video_bool"
+            value="true" />
+        <boolean
+            name="mtk_allow_one_video_call_only_bool"
+            value="true" />
+        <boolean
+            name="mtk_allow_one_way_video_bool"
+            value="false" />
+    </carrier_config>
+    <carrier_config
+        mcc="460"
+        mnc="30">
+        <boolean
+            name="call_forwarding_over_ut_warning_bool"
+            value="true" />
+        <boolean
+            name="call_barring_over_ut_warning_bool"
+            value="true" />
+        <boolean
+            name="call_waiting_over_ut_warning_bool"
+            value="true" />
+        <boolean
+            name="caller_id_over_ut_warning_bool"
+            value="true" />
+        <boolean
+            name="mtk_allow_one_video_call_only_bool"
+            value="true" />
+        <boolean
+            name="mtk_vt_dialpad_support_bool"
+            value="true" />
+        <boolean
+            name="mtk_no_sip_message_on_pause_video_bool"
+            value="true" />
+        <boolean
+            name="vilte_data_is_metered_bool"
+            value="false" />
+        <boolean
+            name="ignore_data_enabled_changed_for_video_calls"
+            value="true" />
+        <boolean
+            name="allow_hold_video_call_bool"
+            value="false" />
+        <boolean
+            name="allow_add_call_during_video_call"
+            value="false" />
+        <string-array
+            name="mtk_key_early_video_config_string_array"
+            num="2">
+            <item
+                value="\\\\#,2*00" />
+            <item
+                value="1*00,#" />
+        </string-array>
+        <boolean
+            name="mtk_vt_mt_ringtone_support_bool"
+            value="true" />
+        <string-array
+            name="carrier_metered_apn_types_strings"
+            num="2">
+            <item
+                value="default" />
+            <item
+                value="dun" />
+        </string-array>
+        <int-array
+            name="lte_rsrp_thresholds_int_array"
+            num="4">
+            <item
+                value="-120" />
+            <item
+                value="-118" />
+            <item
+                value="-114" />
+            <item
+                value="-105" />
+        </int-array>
+        <boolean
+            name="use_only_rsrp_for_lte_signal_bar_bool"
+            value="true" />
+        <int
+            name="mtk_test_sim_mtu_value_int"
+            value="1500" />
+        <boolean
+            name="vonr_setting_visibility_bool"
+            value="false" />
+    </carrier_config>
+    <carrier_config
+        mcc="515"
+        mnc="66">
+        <boolean
+            name="call_forwarding_over_ut_warning_bool"
+            value="true" />
+        <boolean
+            name="call_barring_over_ut_warning_bool"
+            value="true" />
+        <boolean
+            name="call_waiting_over_ut_warning_bool"
+            value="true" />
+        <boolean
+            name="caller_id_over_ut_warning_bool"
+            value="true" />
+        <boolean
+            name="support_video_conference_call_bool"
+            value="true" />
+        <boolean
+            name="mtk_wos_flight_mode_support_bool"
+            value="false" />
+    </carrier_config>
+    <carrier_config
+        mcc="525"
+        mnc="10">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+        <boolean
+            name="mtk_support_vt_ss_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="530"
+        mnc="99">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="547"
+        mnc="5">
+        <boolean
+            name="carrier_allow_transfer_ims_call_bool"
+            value="true" />
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        mcc="639"
+        mnc="11">
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="647"
+        mnc="4">
+        <boolean
+            name="mtk_wos_flight_mode_support_bool"
+            value="false" />
+    </carrier_config>
+    <carrier_config
+        mcc="730"
+        mnc="23">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <boolean
+            name="editable_wfc_mode_bool"
+            value="false" />
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+        <boolean
+            name="mtk_carrier_wfc_mode_domestic_roaming_to_home"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="732"
+        mnc="360">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <boolean
+            name="mtk_support_vt_ss_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        mcc="738"
+        mnc="0">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="16">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="18">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <boolean
+            name="carrier_allow_transfer_ims_call_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="19">
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+        <boolean
+            name="carrier_allow_transfer_ims_call_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="21">
+        <boolean
+            name="support_video_conference_call_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="22">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="23">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <boolean
+            name="support_video_conference_call_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="31">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="451">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="568">
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+        <boolean
+            name="mtk_wos_flight_mode_support_bool"
+            value="false" />
+    </carrier_config>
+    <carrier_config
+        cid="624">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="625">
+        <boolean
+            name="support_video_conference_call_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="656">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="658">
+        <boolean
+            name="vilte_data_is_metered_bool"
+            value="false" />
+        <boolean
+            name="ignore_data_enabled_changed_for_video_calls"
+            value="true" />
+        <boolean
+            name="mtk_vt_over_wifi_check_volte_enable_bool"
+            value="false" />
+        <boolean
+            name="support_video_conference_call_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="667">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+        <boolean
+            name="mtk_support_vt_ss_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="668">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="669">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="749">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+        <boolean
+            name="editable_wfc_mode_bool"
+            value="false" />
+    </carrier_config>
+    <carrier_config
+        cid="759">
+        <boolean
+            name="mtk_support_vt_ss_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="760">
+        <boolean
+            name="mtk_support_vt_ss_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="762">
+        <boolean
+            name="allow_hold_video_call_bool"
+            value="false" />
+        <boolean
+            name="allow_add_call_during_video_call"
+            value="false" />
+    </carrier_config>
+    <carrier_config
+        cid="765">
+        <boolean
+            name="mtk_support_vt_ss_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="770">
+        <boolean
+            name="mtk_support_vt_ss_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="788">
+        <boolean
+            name="support_video_conference_call_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="792">
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="797">
+        <boolean
+            name="vilte_data_is_metered_bool"
+            value="false" />
+        <boolean
+            name="ignore_data_enabled_changed_for_video_calls"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="798">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+        <boolean
+            name="carrier_default_wfc_ims_roaming_enabled_bool"
+            value="true" />
+        <boolean
+            name="vilte_data_is_metered_bool"
+            value="false" />
+        <boolean
+            name="ignore_data_enabled_changed_for_video_calls"
+            value="true" />
+        <boolean
+            name="support_video_conference_call_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="866">
+        <boolean
+            name="mtk_wos_flight_mode_support_bool"
+            value="false" />
+        <boolean
+            name="support_video_conference_call_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="869">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="892">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="893">
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="894">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="896">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="898">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="899">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="903">
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="970">
+        <boolean
+            name="mtk_wos_flight_mode_support_bool"
+            value="false" />
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+        <boolean
+            name="carrier_default_wfc_ims_roaming_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1241">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="1300">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="1328">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="1337">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <boolean
+            name="support_video_conference_call_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1348">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="1362">
+        <boolean
+            name="mtk_support_vt_ss_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1365">
+        <boolean
+            name="mtk_support_vt_ss_bool"
+            value="true" />
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="1367">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="1370">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="1413">
+        <boolean
+            name="support_video_conference_call_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1437">
+        <boolean
+            name="mtk_volte_conference_enhanced_enable_bool"
+            value="true" />
+        <boolean
+            name="mtk_allow_one_video_call_only_bool"
+            value="true" />
+        <boolean
+            name="allow_hold_video_call_bool"
+            value="false" />
+        <boolean
+            name="allow_add_call_during_video_call"
+            value="false" />
+        <boolean
+            name="mtk_allow_one_way_video_bool"
+            value="false" />
+        <int
+            name="mtk_timer_for_decline_upgrade_int"
+            value="15" />
+        <boolean
+            name="mtk_vt_dialpad_support_bool"
+            value="true" />
+        <boolean
+            name="support_adhoc_conference_calls_bool"
+            value="true" />
+        <boolean
+            name="support_add_conference_participants_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1447">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="1448">
+        <boolean
+            name="carrier_default_wfc_ims_roaming_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1463">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="1472">
+        <boolean
+            name="support_video_conference_call_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1475">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="1493">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="1519">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+        <boolean
+            name="editable_wfc_mode_bool"
+            value="false" />
+    </carrier_config>
+    <carrier_config
+        cid="1521">
+        <boolean
+            name="mtk_support_vt_ss_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1526">
+        <boolean
+            name="mtk_support_vt_ss_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1537">
+        <boolean
+            name="support_video_conference_call_bool"
+            value="true" />
+        <boolean
+            name="mtk_support_vt_ss_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1580">
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1599">
+        <boolean
+            name="carrier_default_wfc_ims_roaming_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1619">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="1628">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="1633">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <boolean
+            name="editable_wfc_mode_bool"
+            value="false" />
+    </carrier_config>
+    <carrier_config
+        cid="1653">
+        <boolean
+            name="mtk_support_vt_ss_bool"
+            value="true" />
+        <boolean
+            name="mtk_carrier_wfc_get_location_always"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1656">
+        <boolean
+            name="mtk_support_vt_ss_bool"
+            value="true" />
+        <boolean
+            name="support_video_conference_call_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1662">
+        <boolean
+            name="mtk_support_vt_ss_bool"
+            value="true" />
+        <boolean
+            name="vilte_data_is_metered_bool"
+            value="false" />
+        <boolean
+            name="ignore_data_enabled_changed_for_video_calls"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1675">
+        <boolean
+            name="mtk_support_vt_ss_bool"
+            value="true" />
+        <boolean
+            name="support_video_conference_call_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1683">
+        <boolean
+            name="mtk_wos_flight_mode_support_bool"
+            value="false" />
+    </carrier_config>
+    <carrier_config
+        cid="1684">
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1696">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="1707">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="1736">
+        <boolean
+            name="mtk_key_show_45g_options"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1746">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="1795">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="1796">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="1820">
+        <boolean
+            name="mtk_key_add_mnoapns_into_allapnlist"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1837">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="1838">
+        <boolean
+            name="mtk_key_add_mnoapns_into_allapnlist"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1853">
+        <boolean
+            name="mtk_key_add_mnoapns_into_allapnlist"
+            value="true" />
+        <string-array
+            name="read_only_apn_types_string_array"
+            num="0" />
+    </carrier_config>
+    <carrier_config
+        cid="1862">
+        <boolean
+            name="carrier_default_wfc_ims_roaming_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1863">
+        <boolean
+            name="support_video_conference_call_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1903">
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="1932">
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+        <boolean
+            name="carrier_default_wfc_ims_roaming_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="2001">
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+        <boolean
+            name="mtk_support_vt_ss_bool"
+            value="true" />
+        <boolean
+            name="support_video_conference_call_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="2015">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2037">
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="2052">
+        <boolean
+            name="mtk_wos_flight_mode_support_bool"
+            value="false" />
+    </carrier_config>
+    <carrier_config
+        cid="2096">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2100">
+        <int
+            name="gsm_dtmf_tone_delay_int"
+            value="70" />
+    </carrier_config>
+    <carrier_config
+        cid="2102">
+        <boolean
+            name="carrier_default_data_roaming_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="2114">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2120">
+        <boolean
+            name="mtk_key_carrier_need_show_roaming_icon"
+            value="false" />
+        <string-array
+            name="mtk_carrier_international_roaming_exception_list_strings"
+            num="5">
+            <item
+                value="310110" />
+            <item
+                value="310140" />
+            <item
+                value="310400" />
+            <item
+                value="310470" />
+            <item
+                value="311170" />
+        </string-array>
+    </carrier_config>
+    <carrier_config
+        cid="2129">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2143">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2147">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2156">
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="2159">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2249">
+        <boolean
+            name="support_video_conference_call_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="2261">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2271">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2272">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2273">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2274">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2275">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2276">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2277">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2282">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2284">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2303">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2304">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2308">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2309">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2336">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2364">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+        <boolean
+            name="editable_wfc_mode_bool"
+            value="false" />
+    </carrier_config>
+    <carrier_config
+        cid="2366">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2368">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2376">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <int
+            name="carrier_default_wfc_ims_roaming_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2391">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2393">
+        <boolean
+            name="mtk_support_vt_ss_bool"
+            value="true" />
+        <boolean
+            name="support_video_conference_call_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="2397">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2398">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2399">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+        <boolean
+            name="carrier_allow_transfer_ims_call_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="2419">
+        <boolean
+            name="carrier_default_data_roaming_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="2442">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2443">
+        <int
+            name="carrier_default_wfc_ims_mode_int"
+            value="1" />
+    </carrier_config>
+    <carrier_config
+        cid="2446">
+        <boolean
+            name="carrier_default_wfc_ims_enabled_bool"
+            value="true" />
+    </carrier_config>
+    <carrier_config
+        cid="2504">
+        <int
+            name="default_mtu_int"
+            value="1280" />
+    </carrier_config>
+    <carrier_config
+        cid="2517">
+        <boolean
+            name="rtt_supported_bool"
+            value="true" />
+        <boolean
+            name="rtt_supported_while_roaming_bool"
+            value="true" />
+        <string
+            name="httpParams">X-MDN: ##LINE1##</string>
+    </carrier_config>
+    <carrier_config
+        cid="2528">
+        <boolean
+            name="rtt_supported_bool"
+            value="true" />
+        <boolean
+            name="rtt_supported_while_roaming_bool"
+            value="true" />
+        <string
+            name="httpParams">X-MDN: ##LINE1##</string>
+    </carrier_config>
+    <carrier_config
+        cid="10013">
+        <int
+            name="default_mtu_int"
+            value="1342" />
+    </carrier_config>
+</carrier_config_list>

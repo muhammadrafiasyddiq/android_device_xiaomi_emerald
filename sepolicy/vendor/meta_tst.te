@@ -1,0 +1,9 @@
+
+allow meta_tst init:fifo_file { write };
+allow meta_tst shell_exec:file { read open map getattr execute };
+allow meta_tst toolbox_exec:file { read open map getattr execute execute_no_trans };
+allow meta_tst version_info:file r_file_perms;
+allow init meta_tst_exec:file { read getattr map execute open };
+allow init meta_tst:process { transition };
+allow meta_tst meta_tst_exec:file { read getattr map execute open };
+set_prop(meta_tst, vendor_fp_prop)

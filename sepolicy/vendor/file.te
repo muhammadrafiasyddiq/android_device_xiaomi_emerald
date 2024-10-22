@@ -1,0 +1,22 @@
+# Graphics
+type vendor_sysfs_displayfeature, fs_type, sysfs_type;
+type sysfs_graphics, fs_type, sysfs_type;
+
+# Health HAL
+type vendor_sysfs_usb_supply, fs_type, sysfs_type;
+
+# Touch gestures
+type sysfs_tp_gesture, fs_type, sysfs_type;
+
+# Version Info
+type version_info, fs_type, sysfs_type;
+
+#TP
+type sysfs_tp_virtual_prox, fs_type, sysfs_type;
+
+# Camera
+type camera_persist_file, file_type;
+type camera_vendor_data_file, file_type, data_file_type;
+
+# Audio
+type vendor_sia_mode, fs_type, sysfs_type;
