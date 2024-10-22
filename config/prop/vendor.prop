@@ -177,6 +177,7 @@ ro.vendor.mtk_agps_app=1
 ro.vendor.mtk_hifiaudio_support=1
 ro.vendor.mtk_log_hide_gps=0
 ro.vendor.mtk_microtrust_tee_support=1
+ro.vendor.mtk_mitee_support=1
 ro.vendor.mtk_mvpu_security_support=0
 ro.vendor.mtk_nn.option=A,B,C,D,E,F,G,Z
 ro.vendor.mtk_nn_baseline_support=1
