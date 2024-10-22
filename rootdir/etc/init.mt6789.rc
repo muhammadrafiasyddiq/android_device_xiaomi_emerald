@@ -15,15 +15,26 @@ import ${ro.vendor.rc}init.cgroup.rc
 import ${ro.vendor.rc}init.modem.rc
 # *** DO NOT import the new rc file after this line ***
 
-#L19A code for HQ-194739 by qianxiaoming at 20220512 start
-import init.mishow.ctl.rc
-#L19A code for HQ-194739 by qianxiaoming at 20220512 end
-
 on early-init
     write /proc/bootprof "INIT:early-init"
 
     # initialize vendor.all.modules.ready to 1 here to prevent NOT GKI project blocked
     setprop vendor.all.modules.ready 1
+    
+    rm /mnt/vendor/nvcfg/boot_lc_full.txt
+    #N6 code for HQ-301310 by p-wangkang20 at 2023.7.17 start
+    chown system system /sys/class/huaqin/interface/hw_info/pcba_config
+    chmod 0664 /sys/class/huaqin/interface/hw_info/pcba_config
+    #N6 code for HQ-301310 by p-wangkang20 at 2023.7.17 end
+
+    #N6 code for HQ-304460 by p-wangkang20 at 2023.8.3 start
+    chmod 0666 /sys/class/power_supply/battery/input_suspend
+    chown system system /sys/class/power_supply/battery/input_suspend
+    #N6 code for HQ-304460 by p-wangkang20 at 2023.8.3 end
+
+    #N6 code for HQ-323910 by p-hugaojian1 at 2023.9.5 start
+    mount debugfs debugfs /sys/kernel/debug
+    #N6 code for HQ-323910 by p-hugaojian1 at 2023.9.5 end
 
 # Keep debugfs mounted in non-user builds
 on early-init && property:ro.build.type=eng
@@ -41,14 +52,12 @@ on init
 
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
-
+    symlink /dev/block /dev/block/bootdevice
+    start boot_lc
     # if primary storage is physical, set ro.vold.primary_physical to 1
     # setprop ro.vold.primary_physical 1
-   start boot_lc
-    mkdir /mnt/cd-rom 0000 system system
 
-    # add this link for cust mount
-    symlink /dev/block/platform/bootdevice /dev/block/bootdevice
+    mkdir /mnt/cd-rom 0000 system system
 
 # change lk_env permission
     chown root system /proc/lk_env
@@ -58,16 +67,11 @@ on init
     write /proc/sys/net/core/wmem_max 8388608
     write /proc/sys/net/core/rmem_max 8388608
 
-
-#L19A code for HQ-194752 by yangaijing at 2022/4/15 start
-write /proc/sys/net/ipv4/tcp_mtu_probing 1
-#L19A code for HQ-194752 by yangaijing at 2022/4/15 start
-
 # update cpus for cpuset cgroup
     write /dev/cpuset/foreground/cpus 0-7
     write /dev/cpuset/foreground/boost/cpus 0-7
     write /dev/cpuset/background/cpus 0-3
-    write /dev/cpuset/system-background/cpus 0-3
+    write /dev/cpuset/system-background/cpus 0-5
     write /dev/cpuset/top-app/cpus 0-7
 
 on late-init
@@ -78,7 +82,7 @@ on late-init
 # mount different fs start
 
 on charger
-
+    start mi_thermald
     exec /system/bin/e2fsck -f -p /dev/block/by-name/cache
     mount ext4 /dev/block/by-name/cache /cache rw wait
     chmod 0660 /dev/spm
@@ -119,11 +123,11 @@ on charger
 
 on early-fs
     write /proc/bootprof "INIT:early-fs"
-
+    start boot_lc
 on fs
     write /proc/bootprof "INIT:fs"
     start vendor.boot-hal-1-2
-
+    start boot_lc
     # mount fstab
     write /proc/bootprof "INIT:Mount_START"
     write /sys/kernel/tracing/trace_marker "B|1|Mount"
@@ -132,17 +136,13 @@ on fs
     write /sys/kernel/tracing/trace_marker "E"
     write /proc/bootprof "INIT:Mount_END"
 
-    # mount rescue
-    mount ext4 /dev/block/bootdevice/by-name/rescue /mnt/rescue noatime
-    restorecon_recursive /mnt/rescue
-    start boot_lc
 on fs
 
     mount iso9660 loop@/vendor/etc/iAmCdRom.iso /mnt/cd-rom ro
-    # L19A code for HQ-194814 by gaoshilin at 20220411 start
+    # N6 code for HQ-304104 by hugaojian at 20230802 start
     mount ext4 /dev/block/by-name/rescue /mnt/rescue noatime
     restorecon_recursive /mnt/rescue
-    # L19A code for HQ-194814 by gaoshilin at 20220411 end
+    # N6 code for HQ-304104 by hugaojian at 20230802 end
 
 on late-fs
     write /proc/bootprof "INIT:late-fs"
@@ -200,14 +200,12 @@ on post-fs-data
     # Disable watermark boost
     write /proc/sys/vm/watermark_boost_factor 0
 
-# L19A-T code for HQ-266190 by pangshanzheng at 2022/12/20 start
     # zram
     write /sys/block/zram0/comp_algorithm lz4
     write /proc/sys/vm/page-cluster 0
     write /proc/sys/vm/swappiness 100
     write /sys/kernel/mm/swap/vma_ra_enabled false
     swapon_all /vendor/etc/fstab.enableswap
-# L19A-T code for HQ-266190 by pangshanzheng at 2022/12/20 end
 
     # boot time fs tune
     write /sys/block/mmcblk0/queue/iostats 0
@@ -722,8 +720,13 @@ on post-fs-data
 	mkdir /data/vendor/.tp/ 0775 system system
 	mkdir /data/vendor/thermal/ 0775 system system
 
+# N6 code for HQ-303892 by yingxuezhen at 2023/07/27 start
+    mkdir /data/vendor/thermal/ 0775 system system
     mkdir /data/vendor/thermal 0771 root system
     mkdir /data/vendor/thermal/config 0771 root system
+    start mi_thermald
+    chown system system /sys/class/thermal/thermal_message/sconfig
+# N6 code for HQ-303892 by yingxuezhen at 2023/07/27 end
 
     #MCUPM log
     chmod 0620 /sys/class/misc/mcupm/mcupm_mobile_log
@@ -745,11 +748,16 @@ on post-fs-data
 	chmod 0660 /dev/drm_wv
 	chown media system /dev/drm_wv
 
-#L19A HQ-194773 add charge looger function by tongjiacheng at 2022/05/19 start
+#N6 code for HQ-304310 by songweijie at 2023/07/11 start
     mkdir /data/vendor/charge_logger 0771 system system
     chmod 0664 /data/vendor/charge_logger/charge_logger_a.csv
     chown system system /data/vendor/charge_logger/charge_logger_a.csv
-#L19A HQ-194773 add charge looger function by tongjiacheng at 2021/05/19 end
+# N6 code for HQ-304310 by songweijie at 2023/07/11 end
+
+# N6 code for HQ-303896 by wangziru at 20230807 start
+    mkdir /data/vendor/dolby 0770 media media
+# N6 code for HQ-303896 by wangziru at 20230807 end
+
 # End of adding by MTK drivers
 # -----------------------
 on zygote-start
@@ -768,13 +776,6 @@ on boot
     chmod 0664 /sys/class/leds/lcd-backlight/brightness
     chown system system /sys/class/leds/lcd-backlight/brightness
 
-    chmod 0664 /sys/devices/platform/flashlights_led191/led191_FLASH
-    chown system system /sys/devices/platform/flashlights_led191/led191_FLASH
-    chmod 0664 /sys/devices/platform/flashlights_lm3601/lm3601_torch
-    chown system system /sys/devices/platform/flashlights_lm3601/lm3601_torch
-    chmod 0664 /sys/devices/platform/flashlights_lm3601/lm3601_torch_current_level
-    chown system system /sys/devices/platform/flashlights_lm3601/lm3601_torch_current_level
-
     chown system system /sys/devices/system/cpu/cpufreq/hotplug/cpu_num_base
     chmod 0660 /sys/devices/system/cpu/cpufreq/hotplug/cpu_num_base
     chown system system /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
@@ -791,6 +792,8 @@ on boot
     chown system /sys/module/mlog/parameters/do_mlog
     chown system /sys/module/mlog/parameters/timer_intval
 
+    chmod 0664 /sys/devices/platform/flashlights_mt6789/mt6789_flash
+    chown system system /sys/devices/platform/flashlights_mt6789/mt6789_flash
     chown root   radio  /sys/class/leds/lcd-backlight/duty
     chown root   radio  /sys/class/leds/lcd-backlight/div
     chown system system /sys/class/leds/lcd-backlight/trigger
@@ -810,22 +813,6 @@ on boot
     chmod 0770 /sys/power/tuxonice
     chmod 0220 /sys/power/tuxonice/do_hibernate
 
-    #L19A code for HQ-211786 by qianxiaoming at 2022/05/30 start
-    chown system system /sys/class/huaqin/interface/hw_info/lcm
-    chmod 0666 /sys/class/huaqin/interface/hw_info/lcm
-    chown system system /proc/nvt_pocket_palm_switch
-    chmod 0666 /proc/nvt_pocket_palm_switch
-    chown system system /proc/nvt_edge_reject_switch
-    chmod 0666 /proc/nvt_edge_reject_switch
-    chown system sys/devices/platform/soc/1100a000.spi0/spi_master/spi0/spi0.1/fts_rw_reg
-    chmod 0666   sys/devices/platform/soc/1100a000.spi0/spi_master/spi0/spi0.1/fts_rw_reg
-    chown system sys/devices/platform/soc/1100a000.spi0/spi_master/spi0/spi0.1/fts_edge_mode
-    chmod 0666   sys/devices/platform/soc/1100a000.spi0/spi_master/spi0/spi0.1/fts_edge_mode
-    chown system sys/devices/platform/soc/1100a000.spi0/spi_master/spi0/spi0.1/fts_charger_mode
-    chmod 0666   sys/devices/platform/soc/1100a000.spi0/spi_master/spi0/spi0.1/fts_charger_mode
-    chown system sys/devices/platform/soc/1100a000.spi0/spi_master/spi0/spi0.1/fts_earphone_mode
-    chmod 0666   sys/devices/platform/soc/1100a000.spi0/spi_master/spi0/spi0.1/fts_earphone_mode
-    #L19A code for HQ-211786 by qianxiaoming at 2022/05/30 end
 
 # Smartbook Handler Framework
     chown system system /sys/power/sb_state
@@ -951,17 +938,6 @@ on boot
     chown root radio /proc/net/netfilter/nfnetlink_log
     chown root radio /proc/net/netfilter/nfnetlink_queue
 
-# /*L19A HQ-194739 modify input_suspend node by gengyifei at 2022/5/12 start */
-# charger node
-    chmod 0666 /sys/class/mtk-battery/battery/input_suspend
-    chown system system /sys/class/mtk-battery/battery/input_suspend
-# /*L19A HQ-194739 modify input_suspend node by gengyifei at 2022/5/12 end */
-
-# charger node
-# /*L19A HQ-193822 modify charging enable node by miaozhichao at 2022/4/18 */
-    chmod 0666 /sys/class/mtk-battery/battery/charging_enabled
-    chown system system /sys/class/mtk-battery/battery/charging_enabled
-
 # WMT proc
     chown shell system /proc/driver/wmt_dbg
     chown shell system /proc/driver/wmt_aee
@@ -970,14 +946,6 @@ on boot
     chown system radio /dev/ttyGS3
     chmod 0660 /dev/ttyGS3
 
-# L19A code for HQ-202127 by zhangbing at 2022/04/13
-chmod 0666 /dev/sia81xx_tuning_if
-
-# L19A code for HQ-203837 by zhangbing at 2022/4/29 start
-    chown audioserver audio /sys/bus/i2c/devices/6-0058/vmax
-    chmod 0660 /sys/bus/i2c/devices/6-0058/vmax
-# L19A code for HQ-203837 by zhangbing at 2022/4/29 end
-
 #Define device for ATCID
     chmod 660 /dev/ttyGS0
     chown system radio /dev/ttyGS0
@@ -985,16 +953,6 @@ chmod 0666 /dev/sia81xx_tuning_if
     chown system radio /dev/ttyGS1
 #Power Manager
     write /sys/power/pm_freeze_timeout 2000
-
-# L19A code for HQ-192464 by liwen at 2022.04.15 start
-    start mi_thermald
-    chown system system /sys/class/thermal/thermal_message/sconfig
-# L19A code for HQ-192464 by liwen at 2022.04.15 end
-# M6 code for HQ-247637 by yingxuezhen at 2022/10/09 start
-    chown system system /sys/devices/platform/batt_wt_chg/power_supply/battery/current_now
-    chmod 0664 /sys/devices/platform/batt_wt_chg/power_supply/battery/current_now
-    chmod 0644 /sys/class/power_supply/battery/charge_control_limit
-# M6 code for HQ-247637 by yingxuezhen at 2022/10/09 end
 
 on property:vold.decrypt=trigger_reset_main
     write /proc/bootprof "INIT:vold.decrypt=trigger_reset_main"
@@ -1019,24 +977,6 @@ on property:vold.decrypt=trigger_shutdown_framework
     setprop sys.boot_completed 0
     setprop dev.bootcomplete 0
 
-#L19A for HQ-194562 add by yangaijing at 2022.4.26 start
-#WiFi
-on property:vendor.sysctl.tx=3
-# L19A-T code for HQ-235030 by yangaijing at 2022/10/13 start
-    exec - root -- /vendor/bin/iwpriv wlan0 driver "SET_PWR_CTRL MySar 3"
-#WiFi
-on property:vendor.sysctl.tx=2
-    exec - root -- /vendor/bin/iwpriv wlan0 driver "SET_PWR_CTRL MySar 2"
-#WiFi
-on property:vendor.sysctl.tx=1
-    exec - root -- /vendor/bin/iwpriv wlan0 driver "SET_PWR_CTRL MySar 1"
-#WiFi
-on property:vendor.sysctl.tx=0
-    exec - root -- /vendor/bin/iwpriv wlan0 driver "SET_PWR_CTRL MySar 0"
-# L19A-T code for HQ-235030 by yangaijing at 2022/10/13 end
-#L19A for HQ-194562 add by yangaijing at 2022.4.26 end
-
-
 # bugreport is triggered by holding down volume down, volume up and power
 service bugreport /system/bin/dumpstate -d -p -B -z \
         -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
@@ -1059,7 +999,7 @@ on property:sys.boot_completed=1
     write /sys/block/dm-3/queue/read_ahead_kb 128
     write /sys/block/dm-4/queue/read_ahead_kb 128
     write /sys/block/dm-5/queue/read_ahead_kb 128
-
+    stop boot_lc
 on property:sys.boot_completed=1
     write /proc/perfmgr/boost_ctrl/cpu_ctrl/boot_freq "-1 -1 -1 -1 -1 -1"
     write /sys/devices/platform/boot_dramboost/dramboost/dramboost 0
@@ -1121,6 +1061,23 @@ service loghidlsysservice /system/bin/loghidlsysservice
     group system
     disabled
 
+service boot_lc /system/bin/logcat -b all -D -f /mnt/vendor/nvcfg/boot_lc_full.txt
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+    
+    
+# N6 code for HQ-304423 by p-wumingzhu1 at 2023/07/31 start
+service charger /system/bin/charger
+    class charger
+    critical
+    #seclabel u:r:charger:s0
+    group system graphics
+    seclabel u:r:healthd:s0
+# N6 code for HQ-304423 by p-wumingzhu1 at 2023/07/31 end
+
 # add meta_tst for ATM
 service meta_tst /vendor/bin/meta_tst
     class core
@@ -1137,7 +1094,7 @@ service factory_no_image /vendor/bin/factory
     capabilities BLOCK_SUSPEND NET_RAW NET_ADMIN SYS_ADMIN SYS_BOOT
     socket factory-atci stream 660 radio system
     disabled
-    oneshot	
+    oneshot
 
 # start meta_tst for ATM
 on property:sys.boot_completed=1 && property:ro.boot.atm=enable
@@ -1145,17 +1102,16 @@ on property:sys.boot_completed=1 && property:ro.boot.atm=enable
     start loghidlvendorservice
     start loghidlsysservice
 
-#L19A HQ-194773 add charge looger function by tongjiacheng at 2022/05/19 start
+# N6 code for HQ-304310/322965 by songweijie/zhongxiangchao at 2023/07/11,08/28 start
 service charge_logger /vendor/bin/charge_logger
     class main
     user system
-    group system
+    group system radio wakelock
     disabled
     oneshot
 on property:sys.boot_completed=1
     start charge_logger
-#L19A HQ-194773 add charge looger function by tongjiacheng at 2022/05/19 end
-
+# N6 code for HQ-304310/322965 by songweijie/zhongxiangchao at 2023/07/11,08/28 end
 
 # reset mdmode when modem crash happens in ATM
 on property:vendor.mtk.md1.status=reset
@@ -1176,8 +1132,14 @@ service osi /system/bin/osi
     disabled
     oneshot
     #seclabel u:r:osi:s0
-
-#L19A code for HQ-193996 by qianxiaoming at 2022.4.7
+# N6 code for HQ-303892 by yingxuezhen at 2023/07/27 start
+service mi_thermald /system/vendor/bin/mi_thermald
+    class main
+    user root
+    group system
+    seclabel u:r:mi_thermald:s0
+# N6 code for HQ-303892 by yingxuezhen at 2023/07/27 end
+#N6 code for HQ-301310 by p-wangkang20 at 2023.7.17 start
 service initprop_bin /system/vendor/bin/initprop_bin
     class main
     user root
@@ -1187,166 +1149,62 @@ service initprop_bin /system/vendor/bin/initprop_bin
 on property:vendor.service.nvram_init=Ready
     start initprop_bin
 
+on property:ro.vendor.oem.sno=*
+    setprop ro.ril.oem.sno ${ro.vendor.oem.sno}
 
-on property:persist.odm.ril.oem.sno=*
-    setprop ro.ril.oem.sno ${persist.odm.ril.oem.sno}
+on property:ro.vendor.oem.psno=*
+    setprop ro.ril.oem.psno ${ro.vendor.oem.psno}
 
-on property:persist.odm.ril.oem.psno=*
-    setprop ro.ril.oem.psno ${persist.odm.ril.oem.psno}
+#IMEI prop
+on property:ro.vendor.oem.imei=*
+    setprop ro.ril.oem.imei ${ro.vendor.oem.imei}
+    setprop ro.ril.oem.imei1 ${ro.vendor.oem.imei}
 
-on property:persist.odm.ril.oem.wifimac=*
-    setprop ro.ril.oem.wifimac ${persist.odm.ril.oem.wifimac}
+on property:ro.vendor.oem.imei2=*
+    setprop ro.ril.oem.imei2 ${ro.vendor.oem.imei2}
 
-on property:persist.odm.ril.oem.btmac=*
-    setprop ro.ril.oem.btmac ${persist.odm.ril.oem.btmac}
+# boardid prop
+on property:ro.vendor.boot.hwc=*
+    setprop ro.boot.hwc ${ro.vendor.boot.hwc}
 
-on property:persist.odm.ril.factory_id=*
-    setprop ro.ril.factory_id ${persist.odm.ril.factory_id}
+on property:ro.vendor.boot.hwlevel=*
+    setprop ro.boot.hwlevel ${ro.vendor.boot.hwlevel}
 
-on property:persist.odm.ril.oem.imei1=*
-    setprop ro.ril.oem.imei1 ${persist.odm.ril.oem.imei1}
+on property:ro.vendor.boot.hwversion=*
+    setprop ro.boot.hwversion ${ro.vendor.boot.hwversion}
 
-on property:persist.odm.ril.oem.imei2=*
-    setprop ro.ril.oem.imei2 ${persist.odm.ril.oem.imei2}
+# btmac wifimac factory_id
+on property:ro.vendor.oem.wifimac=*
+    setprop ro.ril.oem.wifimac ${ro.vendor.oem.wifimac}
 
-#L19A code for HQ-194086 by qianxiaoming at 2022.4.12
-service screenmode0 /system/vendor/bin/factory_bin s 0
-    class main
-    user root
-    oneshot
-    disabled
+on property:ro.vendor.oem.btmac=*
+    setprop ro.ril.oem.btmac ${ro.vendor.oem.btmac}
 
-service screenmode1 /system/vendor/bin/factory_bin s 1
-    class main
-    user root
-    oneshot
-    disabled
+on property:ro.vendor.ril.factory_id=*
+    setprop ro.ril.factory_id ${ro.vendor.ril.factory_id}
+#N6 code for HQ-301310 by p-wangkang20 at 2023.7.17 end
 
-service screenmode3 /system/vendor/bin/factory_bin s 3
-    class main
-    user root
-    oneshot
-    disabled
+#N6 code for HQ-304460 by p-wangkang20 at 2023.8.3 start
+service mishow_start /vendor/bin/sh /vendor/bin/mishow.sh 1
+       class main
+       user system
+       group system
+       disabled
+       oneshot
+       seclabel u:r:mishow:s0
 
-service openpocket /system/vendor/bin/factory_bin p 1
-    class main
-    user root
-    oneshot
-    disabled
+service mishow_stop /vendor/bin/sh /vendor/bin/mishow.sh 0
+       class main
+       user system
+       group system
+       disabled
+       oneshot
+       seclabel u:r:mishow:s0
 
-service closepocket /system/vendor/bin/factory_bin p 0
-    class main
-    user root
-    oneshot
-    disabled
+on property:vendor.charge.mishow.ctl=true
+       start mishow_start
 
-service enablefreqhop /system/vendor/bin/factory_bin c 1
-    class main
-    user root
-    oneshot
-    disabled
+on property:vendor.charge.mishow.ctl=false
+       start mishow_stop
+#N6 code for HQ-304460 by p-wangkang20 at 2023.8.3 end
 
-service disablefreqhop /system/vendor/bin/factory_bin c 0
-    class main
-    user root
-    oneshot
-    disabled
-
-service enableswtp /system/vendor/bin/factory_bin z 1
-    class main
-    user root
-    oneshot
-    disabled
-
-service disableswtp /system/vendor/bin/factory_bin z 0
-    class main
-    user root
-    oneshot
-    disabled
-
-service gaogpio /system/vendor/bin/factory_bin y 1
-    class main
-    user root
-    oneshot
-    disabled
-
-service digpio /system/vendor/bin/factory_bin y 0
-    class main
-    user root
-    oneshot
-    disabled
-
-service maxcurrentNocall /system/vendor/bin/factory_bin m 0
-    class main
-    user root
-    oneshot
-    disabled
-
-service maxcurrentIncall /system/vendor/bin/factory_bin m 1
-    class main
-    user root
-    oneshot
-    disabled
-
-#L19A code for HQ-194194 by zhouhaitao at 20220516 start
-service displayfeature /system/bin/displayfeature
-     class late_start
-     user root
-     group root
-
-on property:init.svc.surfaceflinger=stopped
-     stop displayfeature
-
-on property:init.svc.surfaceflinger=running
-     start displayfeature
-
-on property:init.svc.surfaceflinger=restarting
-     stop displayfeature
-#L19A code for HQ-194194 by zhouhaitao at 20220516 end
-
-#L19A code for HQ-192464 by liwen at 2022.4.15
-service mi_thermald /system/vendor/bin/mi_thermald
-    class main
-    user root
-    group system
-    seclabel u:r:mi_thermald:s0
-
-service charger /system/bin/charger
-    class charger
-    critical
-    #seclabel u:r:charger:s0
-    group system graphics
-    seclabel u:r:healthd:s0
-
-# L19A code for HQ-211786 by qianxiaoming at 2022/05/30 start
-service headset_in_screenmode /system/vendor/bin/factory_bin q 1
-    class main
-    user root
-    oneshot
-    disabled
-
-service headset_out_screenmode /system/vendor/bin/factory_bin q 0
-    class main
-    user root
-    oneshot
-    disabled
-# L19A code for HQ-211786 by qianxiaoming at 2022/05/30 end
-
-# L19A-T code for HQ-236699 by shaoweijie at 2022/11/09 start
-# charge mode
-#on property:persist.sys.usb.config=adb
-#   start enablefreqhop
-
-# headset mode
-on property:persist.audio.headset.plug.status=on
-   start headset_in_screenmode
-
-on property:persist.audio.headset.plug.status=off
-   start headset_out_screenmode
-# L19A-T code for HQ-236699 by shaoweijie at 2022/11/09 end
-service boot_lc /system/bin/logcat -b all -D -f /mnt/vendor/nvcfg/boot_lc_full.txt
-    class main
-    user root
-    group root system
-    disabled
-    oneshot

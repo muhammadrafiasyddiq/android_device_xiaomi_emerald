@@ -1,11 +1,11 @@
 import /vendor/etc/init/hw/init.mtkgki.rc
 
-# MTK project .rc configure
+# N6 NFC modify by zhangyize at 2023.7.12 start
+import /vendor/etc/init/hw/android.hardware.nfc@1.2-service.rc
+import /vendor/etc/init/android.hardware.secure_element@1.2-service-mediatek.rc
+# N6 NFC modify by zhangyize at 2023.7.12 end
 
-# L19A code for HQ-194398 by lukuan at 2022.4.24 start
-import /vendor/odm/etc/init/${ro.boot.product.hardware.sku}/android.hardware.nfc@1.2-service.rc
-import /vendor/odm/etc/init/${ro.boot.product.hardware.sku}/android.hardware.secure_element@1.2-service-mediatek.rc
-# L19A code for HQ-194398 by lukuan at 2022.4.24 end
+# MTK project .rc configure
 
 on init
     mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
@@ -13,10 +13,17 @@ on init
 
 on post-fs-data
 
-# L19A code for HQ-202127 by zhangbing at 2022/04/13 start
-    chmod 0666 /dev/sia81xx_tuning_if
-    chown system audio /dev/sia81xx_tuning_if
-# L19A code for HQ-202127 by zhangbing at 2022/04/13 end
+#N6 code for HQ-309505 by p-sunyuting at 2023/07/20 start
+    chown system system /dev/xiaomi-fp
+    chmod 0644 /dev/xiaomi-fp
+    chown system system /sys/class/mi_display/disp-DSI-0/disp_param
+    chmod 0644 /sys/class/mi_display/disp-DSI-0/disp_param
+#N6 code for HQ-309505 by p-sunyuting at 2023/07/20 end
+
+#N6 code for HQ-290558 by songguixin at 2023/08/02 start
+#touch
+    chown system system /sys/class/touch/touch_dev/palm_sensor
+#N6 code for HQ-290558 by songguixin at 2023/08/02 end
 
 #Camera
     chmod 0660 /dev/MAINAF
@@ -40,20 +47,15 @@ on post-fs-data
     chmod 0660 /dev/BU64745GWZAF
     chown system camera /dev/BU64745GWZAF
 
-#dual calib
-    chmod 0777 /mnt/vendor/persist
-    mkdir /vendor/etc/camera 0777 system camera
+# N6 code for HQ-308250 by HQ camera at 20230719 start
     mkdir /data/vendor/camera/ 0777 system camera
-    mkdir /mnt/vendor/persist/camera 0777 system camera
-    chmod 0777 /mnt/vendor/persist/camera/rear_dc_cal_wd.bin
-    chmod 0777 /data/vendor/camera/rear_dc_cal_wd.bin
+# N6 code for HQ-308250 by HQ camera at 20230719 end
 
-    chown system system /data/vendor/camera/golden_rear_dc_cal_wd.bin
-    chmod 0777 /data/vendor/camera/golden_rear_dc_cal_wd.bin
-# L19A code for HQ-194090 by guquanding at 20220509 start
-    chmod 0777 /vendor/etc/camera/golden_s5kjn1_i_ov02b1b_i.bin
-    chmod 0777 /vendor/etc/camera/golden_s5kjn1_ii_sc202cs_ii.bin
-# L19A code for HQ-194090 by guquanding at 20220509 end
+# N6 code for HQ-314002 by HQ camera at 20230811 start
+    chmod 777 /mnt/vendor/nvcfg/sensor
+    chmod +r /mnt/vendor/nvcfg/sensor/gyro_cali.json
+    chmod +r /mnt/vendor/nvcfg/sensor/gyro_bias.json
+# N6 code for HQ-314002 by HQ camera at 20230811 end
 
 #SMB
     chown system system /proc/smb/ScreenComm
@@ -62,28 +64,66 @@ on post-fs-data
     chmod 0660 /dev/spm
     chown system system /dev/spm
 
-#TP
-     mkdir /data/vendor/focaltech
-     copy /vendor/firmware/focaltech_mp_fw_tianma.ini /data/vendor/focaltech/focaltech_mp_fw_tianma.ini
-     chown system system /data/vendor/focaltech/focaltech_mp_fw_tianma.ini
-     chmod 0660 /data/vendor/focaltech/focaltech_mp_fw_tianma.ini
-#L19A code for HQ-234958 by baoguangxiu at 2022/10/20 start
-#touch
-    chown system system /sys/class/touch/touch_dev/palm_sensor
-#L19A code for HQ-234958 by baoguangxiu at 2022/10/20 end
-#finggerprint
-    chown system system /dev/goodix_fp
-    chmod 0644 /dev/goodix_fp
-    chown system system /sys/bus/platform/devices/fingerprint/clk_enable
-    chmod 0660 /sys/bus/platform/devices/fingerprint/clk_enable
-    chown system /sys/bus/platform/devices/fingerprint/irq
-    chmod 0660 /sys/bus/platform/devices/fingerprint/irq
-    chown system system /sys/bus/platform/devices/fingerprint/hw_reset
-    chmod 0660 /sys/bus/platform/devices/fingerprint/hw_reset
-    chown system system /sys/bus/platform/devices/fingerprint/wakeup_enable
-    chmod 0660 /sys/bus/platform/devices/fingerprint/wakeup_enable
-    chown system system /sys/bus/platform/devices/fingerprint/fingerdown_wait
-    chmod 0660 /sys/bus/platform/devices/fingerprint/fingerdown_wait
+# N6 code for HQ-308279 by p-wupeng9 at 2023/07/20 start
+#dual calib
+    chmod 0777 /mnt/vendor/persist/camera/rear_dc_cal_wd.bin
+    chmod 0777 /mnt/vendor/persist/camera/rear_dc_cal_wu.bin
+    chmod 0777 /mnt/vendor/persist/camera/rear_dc_cal_wt.bin
+    chmod 0777 /data/vendor/camera/rear_dc_cal_wd.bin
+    chmod 0777 /data/vendor/camera/rear_dc_cal_wu.bin
+    restorecon /mnt/vendor/persist/camera/rear_dc_cal_wd.bin
+    restorecon /mnt/vendor/persist/camera/rear_dc_cal_wu.bin
+    mkdir /mnt/vendor/persist 0777 system camera
+    mkdir /mnt/vendor/persist/camera 0777 system camera
+    chmod 0777 /vendor/etc/camera/com.xiaomi.dcal.wd.golden
+    chmod 0777 /vendor/etc/camera/com.xiaomi.dcal.wu.golden
+    chmod 0777 /vendor/etc/camera/golden_ov13b10_i_ov2180_i.bin
+    chmod 0777 /vendor/etc/camera/golden_ov13b10_i_ov2180_ii.bin
+    chmod 0777 /vendor/etc/camera/golden_ov13b10_ii_ov2180_i.bin
+    chmod 0777 /vendor/etc/camera/golden_ov13b10_ii_ov2180_ii.bin
+    chmod 0777 /data/vendor/camera/golden_rear_dc_cal_wt.bin
+    chmod 0777 /data/vendor/camera/golden_s5k3l6_ii_ov2180_ii.bin
+# N6 code for HQ-308279 by p-wupeng9 at 2023/07/20 end
+
+# N6 code for HQ-309748 by wulei at 2023/08/14 start
+#intsense bokeh use
+    mkdir /data/vendor/camera 0777 system camera
+    mkdir /data/vendor/camera/model 0777 system camera
+    mkdir /data/vendor/camera/model/dof_model 0777 system camera
+    mkdir /data/vendor/camera/model/rt_model 0777 system camera
+    mkdir /data/vendor/camera/dof_mecp 0777 system camera
+
+    chown system system /data/vendor/camera/com.xiaomi.dcal.wd.data
+    chown system system /data/vendor/camera/com.xiaomi.dcal.wu.data
+    chmod 0777 /data/vendor/camera/com.xiaomi.dcal.wd.data
+    chmod 0777 /data/vendor/camera/com.xiaomi.dcal.wu.data
+
+    copy /vendor/etc/camera/model/dof_model/capture_model /data/vendor/camera/model/dof_model/capture_model
+    copy /vendor/etc/camera/model/dof_model/capture_cache /data/vendor/camera/model/dof_model/capture_cache
+    copy /vendor/etc/camera/model/dof_model/capture_policy /data/vendor/camera/model/dof_model/capture_policy
+    copy /vendor/etc/camera/model/rt_model/preview_cache /data/vendor/camera/model/rt_model/preview_cache
+    copy /vendor/etc/camera/model/rt_model/preview_model /data/vendor/camera/model/rt_model/preview_model
+    copy /vendor/etc/camera/model/rt_model/preview_policy /data/vendor/camera/model/rt_model/preview_policy
+    copy /vendor/etc/camera/dof_mecp/dof_mecp.bin /data/vendor/camera/dof_mecp/dof_mecp.bin
+
+    chmod 0666 /data/vendor/camera/model/dof_model/capture_model
+    chmod 0666 /data/vendor/camera/model/dof_model/capture_cache
+    chmod 0666 /data/vendor/camera/model/dof_model/capture_policy
+    chmod 0666 /data/vendor/camera/model/rt_model/preview_cache
+    chmod 0666 /data/vendor/camera/model/rt_model/preview_model
+    chmod 0666 /data/vendor/camera/model/rt_model/preview_policy
+    chmod 0666 /data/vendor/camera/dof_mecp/dof_mecp.bin
+# N6 code for HQ-309748 by wulei at 2023/08/14 end
+
+# N6 code for HQ-305055 by zhangzhijian5 at 2023/11/1 start
+# Touch
+on property:sys.tp.grip_enable=0
+    write /sys/devices/virtual/touch/touch_dev/touch_edge 0
+on property:sys.tp.grip_enable=90
+    write /sys/devices/virtual/touch/touch_dev/touch_edge 1
+on property:sys.tp.grip_enable=270
+    write /sys/devices/virtual/touch/touch_dev/touch_edge 2
+# N6 code for HQ-305055 by zhangzhijian5 at 2023/11/1 end
 
 on init
     # Refer to http://source.android.com/devices/tech/storage/index.html
@@ -99,13 +139,31 @@ service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/
     class late_start
     disabled
 
-#L19A-T code for HQ-234981 add by qianxiaoming at 2022/11/30 start
-service panel-info-sh /system/vendor/bin/sh /vendor/bin/init.panel_info.sh
+#displayfeature
+on boot
+    chown system system /sys/devices/virtual/mi_display/disp_feature/disp-DSI-0/doze_brightness
+    chmod 0777 /sys/devices/virtual/mi_display/disp_feature/disp-DSI-0/doze_brightness
+    chmod 0777 /sys/class/mi_display/disp-DSI-0/brightness_clone
+    chown system system /sys/class/mi_display/disp-DSI-0/brightness_clone
+    chmod 0777 /dev/mi_display/disp_feature
+    chown system system /dev/mi_display/disp_feature
+    chmod 0777 /sys/class/mi_display/disp-DSI-0/disp_param
+    chown system system /sys/class/mi_display/disp-DSI-0/disp_param
+
+#N6 code for HQ-301791 by p-wangkang20 at 20230802 start
+on property:vendor.sysctl.tx=0
+    exec /vendor/bin/iwpriv wlan0 driver "SET_PWR_CTRL MySar 2"
+on property:vendor.sysctl.tx=1
+    exec /vendor/bin/iwpriv wlan0 driver "SET_PWR_CTRL MySar 1"
+
+service sarcalibration /vendor/bin/sns_sensors_test_and_cal -c 72,3,50000000,0
     class main
     user root
+    disabled
     oneshot
     group root system
-    seclabel u:r:meta_tst:s0
+    seclabel u:r:sardiag:s0
+#N6 code for HQ-301791 by p-wangkang20 at 20230802 end
 
 # start mmstat
 on property:sys.boot_completed=1
@@ -115,52 +173,6 @@ on property:sys.boot_completed=1
     write /sys/kernel/tracing/instances/mmstat/events/mmstat/enable 1
     write /sys/kernel/tracing/instances/mmstat/tracing_on 1
 
-    start panel-info-sh
-#L19A-T code for HQ-234981 add by qianxiaoming at 2022/11/30 end
-
-#L19A code for HQ-199659 add by qianxiaoming at 2022/4/26
-service setsarcal /system/vendor/bin/setsarcal.sh
-    class main
-    user root
-    oneshot
-    group root system
-    seclabel u:r:meta_tst:s0
-
-#L19A code for HQ-213313 by qianxiaoming at 2022/5/27 start
-service service_nv_protect /vendor/bin/misc_writer --nv_protect
-    disabled
-    oneshot
-
-on property:vendor.service_nv_protect=start
-    start service_nv_protect
-#L19A code for HQ-213313 by qianxiaoming at 2022/5/27 end
-
-#L19A-T code for HQ-256400 add by qianxiaoming at 2022/10/18 start
-#Touch
-on property:sys.tp.grip_enable=0
-    write /proc/nvt_edge_reject_switch 1
-
-on property:sys.tp.grip_enable=90
-    write /proc/nvt_edge_reject_switch 3
-
-on property:sys.tp.grip_enable=270
-    write /proc/nvt_edge_reject_switch 2
-
-#Touch2
-on property:sys.tp.grip_enable=0
-    write /sys/devices/platform/soc/1100a000.spi0/spi_master/spi0/spi0.1/fts_edge_mode 0
-
-on property:sys.tp.grip_enable=90
-    write /sys/devices/platform/soc/1100a000.spi0/spi_master/spi0/spi0.1/fts_edge_mode 1
-
-on property:sys.tp.grip_enable=270
-    write /sys/devices/platform/soc/1100a000.spi0/spi_master/spi0/spi0.1/fts_edge_mode 2
-#L19A-T code for HQ-256400 add by qianxiaoming at 2022/10/18 end
-
-  # AudioDump
-    mkdir /data/vendor/audiohal 0771 system audio
-    mkdir /data/vendor/audiohal/audio_param 0771 system audio
-
 on init
     insmod /vendor/lib/modules/millet_core.ko
     insmod /vendor/lib/modules/binder_gki.ko
@@ -169,21 +181,3 @@ on init
     insmod /vendor/lib/modules/millet_pkg.ko
     insmod /vendor/lib/modules/millet_sig.ko
     insmod /vendor/lib/modules/millet_oem_cgroup.ko
-    
-# DT2W
-on boot
-    chmod 0666 /system/bin/sendevent
-    chmod 0666 /dev/input/event4
-    chmod 0666 /dev/input/event3
-    exec - root -- /vendor/bin/init.panel_info.sh
-on property:persist.sys.MT6789.dt2w=0 && property:vendor.panel.touch_vendor=3
-    exec - root -- /system/bin/sendevent /dev/input/event4 0 1 4
-
-on property:persist.sys.MT6789.dt2w=1 && property:vendor.panel.touch_vendor=3
-    exec - root -- /system/bin/sendevent /dev/input/event4 0 1 5
-
-on property:persist.sys.MT6789.dt2w=1 && property:vendor.panel.touch_vendor=4
-    exec - root -- /system/bin/sendevent /dev/input/event3 0 1 5
-
-on property:persist.sys.MT6789.dt2w=0 && property:vendor.panel.touch_vendor=4
-    exec - root -- /system/bin/sendevent /dev/input/event3 0 1 4
