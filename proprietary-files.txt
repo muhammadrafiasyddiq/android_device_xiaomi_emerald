@@ -264,6 +264,10 @@ vendor/etc/AbnormalDisplayLog_dynamic.xml
 vendor/etc/cust_color_dsi_n6_41_02_0b_dsc_vdo.xml
 vendor/etc/cust_color_dsi_n6_42_0d_0a_dsc_vdo.xml
 
+# TS FW
+vendor/firmware/focaltech_mp_fw_huaxin.ini
+vendor/firmware/focaltech_ts_fw_huaxing.bin
+
 # Firmware
 vendor/firmware/aw8622x_haptic.bin
 vendor/firmware/aw8622x_osc_rtp_24K_5s.bin
