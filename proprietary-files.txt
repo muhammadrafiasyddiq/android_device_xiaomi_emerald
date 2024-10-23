@@ -973,6 +973,8 @@ vendor/etc/init/android.hardware.secure_element@1.2-service-mediatek.rc
 # TEE
 vendor/bin/miteelog
 vendor/bin/tee-supplicant
+vendor/etc/init/miteelog.rc
+vendor/etc/init/tee-supplicant.rc
 vendor/lib64/libteecli.so
 vendor/mitee/ta/14b0aad8-c011-4a3f-b66aca8d0e66f273.ta
 vendor/mitee/ta/377ee4e8-af0e-474f-a9d636a9268fe85c.ta
