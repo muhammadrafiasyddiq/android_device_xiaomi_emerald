@@ -957,6 +957,14 @@ vendor/lib64/libipsec_ims_shr.so
 vendor/lib64/libverno.so
 vendor/lib64/vendor.mediatek.hardware.clientapi@1.0.so
 
+# Cit Sensor
+vendor/bin/hw/vendor.xiaomi.sensor.citsensorservice@2.0-service
+vendor/etc/init/vendor.xiaomi.sensor.citsensorservice@2.0-service.rc
+-vendor/etc/vintf/manifest/vendor.xiaomi.sensor.citsensorservice@2.0-service.xml
+vendor/lib64/libclient2slpi.notifier.so
+vendor/lib64/hw/vendor.xiaomi.sensor.citsensorservice@2.0-impl.so
+vendor/lib64/vendor.xiaomi.sensor.citsensorservice@1.1.so
+vendor/lib64/vendor.xiaomi.sensor.citsensorservice@2.0.so
 
 # Sensors
 vendor/lib/libsensorndkbridge.so
@@ -966,6 +974,8 @@ vendor/lib64/hw/sensors.elliptic.so
 vendor/lib64/libhfmanager.so
 vendor/lib64/libhfmanagerwrapper.so
 vendor/lib64/libksensor.so
+vendor/lib64/libsensor_cal@2.0.so
+vendor/lib64/libssccalapi@2.0.so
 vendor/lib64/libsensorndkbridge.so
 vendor/lib64/libnotifyaudiohal.so
 vendor/lib64/sensors.touch.detect.so
