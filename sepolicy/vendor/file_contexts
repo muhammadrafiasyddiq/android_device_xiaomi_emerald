@@ -6,6 +6,10 @@
 # Keymint
 /(vendor|system\/vendor)/bin/hw/android\.hardware\.security\.keymint@1\.0-service\.mitee  u:object_r:hal_keymint_default_exec:s0
 
+# TEE
+/(vendor|system\/vendor)/bin/tee-supplicant u:object_r:tee_exec:s0
+/(vendor|system\/vendor)/bin/miteelog u:object_r:tee_exec:s0
+
 # Health
 /(vendor|system/vendor)/bin/hw/android\.hardware\.health-service\.mt6789 u:object_r:hal_health_default_exec:s0
 
