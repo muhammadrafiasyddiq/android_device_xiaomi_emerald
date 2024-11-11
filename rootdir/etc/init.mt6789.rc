@@ -16,12 +16,12 @@ import ${ro.vendor.rc}init.modem.rc
 # *** DO NOT import the new rc file after this line ***
 
 on early-init
+    start boot_lc
     write /proc/bootprof "INIT:early-init"
 
     # initialize vendor.all.modules.ready to 1 here to prevent NOT GKI project blocked
     setprop vendor.all.modules.ready 1
     
-    rm /mnt/vendor/nvcfg/boot_lc_full.txt
     #N6 code for HQ-301310 by p-wangkang20 at 2023.7.17 start
     chown system system /sys/class/huaqin/interface/hw_info/pcba_config
     chmod 0664 /sys/class/huaqin/interface/hw_info/pcba_config
@@ -1061,14 +1061,6 @@ service loghidlsysservice /system/bin/loghidlsysservice
     group system
     disabled
 
-service boot_lc /system/bin/logcat -b all -D -f /mnt/vendor/nvcfg/boot_lc_full.txt
-    class main
-    user root
-    group root system
-    disabled
-    oneshot
-    
-    
 # N6 code for HQ-304423 by p-wumingzhu1 at 2023/07/31 start
 service charger /system/bin/charger
     class charger
@@ -1088,6 +1080,13 @@ service meta_tst /vendor/bin/meta_tst
     disabled
     oneshot
 
+service boot_lc /system/bin/logcat -b all -D -f /mnt/vendor/nvcfg/boot_lc_full.txt
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+    
 service factory_no_image /vendor/bin/factory
     user root
     group radio system wifi media gps audio bluetooth wakelock nfc
