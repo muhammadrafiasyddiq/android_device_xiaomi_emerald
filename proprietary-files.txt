@@ -267,6 +267,8 @@ vendor/lib64/libprotobuf-cpp-lite-3.9.1.so
 vendor/etc/AbnormalDisplayLog_dynamic.xml
 vendor/etc/cust_color_dsi_n6_41_02_0b_dsc_vdo.xml
 vendor/etc/cust_color_dsi_n6_42_0d_0a_dsc_vdo.xml
+vendor/etc/dsi_n6_41_02_0b_dsc_vdo_mi.xml
+vendor/etc/dsi_n6_42_0d_0a_dsc_vdo_mi.xml
 
 # TS FW
 vendor/firmware/focaltech_mp_fw_huaxin.ini
