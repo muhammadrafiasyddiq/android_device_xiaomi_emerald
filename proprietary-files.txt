@@ -176,6 +176,10 @@ vendor/lib64/libbluetooth_audio_session_mediatek.so
 vendor/lib64/vendor.mediatek.hardware.bluetooth.audio@2.1.so
 vendor/lib64/vendor.mediatek.hardware.bluetooth.audio@2.2.so
 
+# Chipinfo
+vendor/bin/chipinfo
+vendor/etc/init/chipinfo_init.rc
+
 # Display
 vendor/bin/hw/mt6789/android.hardware.graphics.allocator@4.0-service-mediatek.mt6789
 vendor/etc/init/android.hardware.graphics.allocator@4.0-service-mediatek.rc
