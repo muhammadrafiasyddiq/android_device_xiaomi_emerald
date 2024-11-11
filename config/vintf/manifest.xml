@@ -590,5 +590,14 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <kernel target-level="6"/>
+    <hal format="hidl">
+        <name>vendor.xiaomi.hardware.mfidoca</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IFidoService</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IFidoService/default</fqname>
+    </hal>
 </manifest>

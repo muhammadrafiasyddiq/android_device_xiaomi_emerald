@@ -272,6 +272,12 @@ vendor/etc/cust_color_dsi_n6_42_0d_0a_dsc_vdo.xml
 vendor/firmware/focaltech_mp_fw_huaxin.ini
 vendor/firmware/focaltech_ts_fw_huaxing.bin
 
+# Fido
+vendor/bin/fidoca_mitee
+vendor/etc/init/vendor.xiaomi.hardware.mfidoca@1.0-miteeservice.rc
+vendor/lib64/libmfido_mitee.so
+vendor/lib64/vendor.xiaomi.hardware.mfidoca@1.0.so
+
 # Firmware
 vendor/firmware/aw8622x_haptic.bin
 vendor/firmware/aw8622x_osc_rtp_24K_5s.bin
