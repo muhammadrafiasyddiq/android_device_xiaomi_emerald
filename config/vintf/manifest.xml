@@ -610,4 +610,14 @@
         </interface>
         <fqname>@1.1::IMlipayService/default</fqname>
     </hal>
+    <hal format="hidl">
+        <name>vendor.xiaomi.hardware.mtdservice</name>
+        <transport>hwbinder</transport>
+        <version>1.3</version>
+        <interface>
+            <name>IMTService</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.3::IMTService/default</fqname>
+    </hal>
 </manifest>
