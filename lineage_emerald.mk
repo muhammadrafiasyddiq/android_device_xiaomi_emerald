@@ -25,4 +25,7 @@ PRODUCT_MANUFACTURER := Xiaomi
 BUILD_FINGERPRINT :=POCO/emerald_p_id/emerald:14/UP1A.231005.007/V816.0.6.0.UNFIDXM:user/release-keys
 PRIVATE_BUILD_DESC="emerald_p_id-user 14 UP1A.231005.007 V816.0.6.0.UNFIDXM release-keys"
 
+PRODUCT_BUILD_PROP_OVERRIDES += \
+       PRODUCT_NAME=emerald_p_id
+       
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
