@@ -37,6 +37,10 @@ $(call inherit-product, vendor/xiaomi/emerald/emerald-vendor.mk)
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_BUILD_SUPER_PARTITION := false
 
+
+# VNDK
+PRODUCT_SHIPPING_API_LEVEL := 31
+
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
