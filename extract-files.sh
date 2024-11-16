@@ -81,8 +81,7 @@ function blob_fixup() {
         vendor/lib64/hw/android.hardware.gnss-impl-mediatek.so)
             "$PATCHELF" --replace-needed "android.hardware.gnss-V1-ndk_platform.so" "android.hardware.gnss-V1-ndk.so" "$2"
             ;;
-            system_ext/lib64/libsource.so |\
-            vendor/lib64/hw/vendor.xiaomi.sensor.citsensorservice@2.0-impl.so)
+            system_ext/lib64/libsource.so)
             "${PATCHELF}" --add-needed "libui_shim.so" "${2}"
             ;;
             system_ext/lib64/libsink.so)
