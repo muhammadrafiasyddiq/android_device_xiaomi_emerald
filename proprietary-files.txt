@@ -289,6 +289,7 @@ vendor/firmware/aw8624_rtp.bin
 vendor/firmware/aw87xxx_acf.bin
 vendor/firmware/awinic_params.bin
 vendor/firmware/BT_FW.cfg
+vendor/firmware/fm_cust.cfg
 vendor/firmware/fs1815.fsm
 vendor/firmware/fs3001_1.bin
 vendor/firmware/fs3001_2.bin
@@ -357,12 +358,8 @@ vendor/firmware/gt9896s_firmware_6895v01.bin
 vendor/firmware/gt9896s_firmware_6983v01.bin
 vendor/firmware/gt9916_ts_fw_visionox.bin
 vendor/firmware/lib3a.ccu
-vendor/firmware/168_fingerprintRecord_P_RTP.bin
-vendor/firmware/fingerprint_record_rtp.bin
 vendor/firmware/goodix_cfg_group.bin
 vendor/firmware/goodix_test_limits_255_VSN.csv
-vendor/firmware/vibrator_firmware_aidl/168_fingerprintRecord_P_RTP.bin
-vendor/firmware/vibrator_firmware_aidl/fingerprint_record_rtp.bin
 vendor/firmware/mt6627_fm_v1_coeff.bin
 vendor/firmware/mt6627_fm_v1_patch.bin
 vendor/firmware/mt6630_fm_v1_coeff.bin
@@ -394,7 +391,7 @@ vendor/firmware/txpowerctrl.cfg
 vendor/firmware/wifi.cfg
 vendor/firmware/WIFI_RAM_CODE_soc2_2_1d_1.bin
 vendor/firmware/WIFI_RAM_CODE_soc2_2_1e_1.bin
-vendor/firmware/WindChime_RTP.bin
+vendor/firmware/remoteproc_scp
 vendor/firmware/WMT_SOC.cfg
 
 # Gatekeeper
@@ -1019,7 +1016,11 @@ vendor/bin/miteelog
 vendor/bin/tee-supplicant
 vendor/etc/init/miteelog.rc
 vendor/etc/init/tee-supplicant.rc
+vendor/lib64/libgz_gp_client.so
+vendor/lib64/libgz_uree.so
 vendor/lib64/libteecli.so
+vendor/lib64/libthha.so
+vendor/lib64/libTEECommon.so
 vendor/mitee/ta/14b0aad8-c011-4a3f-b66aca8d0e66f273.ta
 vendor/mitee/ta/377ee4e8-af0e-474f-a9d636a9268fe85c.ta
 vendor/mitee/ta/3d08821c-33a6-11e6-a1fa089e01c83aa2.ta
