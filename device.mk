@@ -180,10 +180,13 @@ PRODUCT_PACKAGES += \
 
 # Keymaster / Keymint
 PRODUCT_PACKAGES += \
+    android.hardware.keymaster@4.0.vendor:64 \
+    android.hardware.keymaster@3.0.vendor:64 \
 	libkeymaster_messages.vendor:64 \
 	libkeymaster_portable.vendor:64 \
 	libkeymint.vendor:64 \
-	libpuresoftkeymasterdevice.vendor:64
+	libpuresoftkeymasterdevice.vendor:64 \
+	libkeymaster4support.vendor:64 
 
 # GNSS
 PRODUCT_PACKAGES += \
