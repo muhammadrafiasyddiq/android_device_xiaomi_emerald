@@ -1007,6 +1007,14 @@ vendor/lib64/libsensorndkbridge.so
 vendor/lib64/libnotifyaudiohal.so
 vendor/lib64/sensors.touch.detect.so
 
+# Sensor Configs
+vendor/etc/elliptic_sensor.xml
+vendor/etc/sensors/lightSensorCali.json
+vendor/etc/sensors/lightSensorConfig.json
+vendor/etc/sensors/lightSensorConfigSecPannel.json
+vendor/etc/sensors/lightSensorConfigSecPannelAndSecSensor.json
+vendor/etc/sensors/lightSensorConfigSecSensor.json
+
 # Secure Element
 vendor/bin/hw/android.hardware.secure_element@1.2-service-mediatek
 vendor/etc/init/android.hardware.secure_element@1.2-service-mediatek.rc
