@@ -199,6 +199,7 @@ PRODUCT_PACKAGES += \
 # Shim 
 PRODUCT_PACKAGES += \
     libui_shim \
+    libui_shim.vendor \
     libshim_sink
     
 # Keymaster
