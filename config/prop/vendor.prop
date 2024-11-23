@@ -107,8 +107,6 @@ ro.hardware.gralloc=common
 ro.hardware.vulkan=mali
 ro.opengles.version=196610
 ro.hardware.gralloc=common
-persist.sys.sf.color_saturation=1.0
-persist.sys.sf.native_mode=0
 
 # Encryption (TEE)
 ro.crypto.volume.filenames_mode=aes-256-cts

@@ -382,9 +382,8 @@
     <!-- Indicate available ColorDisplayManager.COLOR_MODE_xxx. -->
     <integer-array name="config_availableColorModes">
        <item>0</item> <!-- COLOR_MODE_NATURAL -->
-       <item>1</item> <!-- COLOR_MODE_BOOSTED -->
-       <item>3</item> <!-- COLOR_MODE_AUTOMATIC -->
     </integer-array>
+    
     <integer name="config_shutdownBatteryTemperature">580</integer>
     <string name="config_mainBuiltInDisplayCutout">M 0,0 H -50 V 76 H 50 V 0 H 0 Z</string>
 
