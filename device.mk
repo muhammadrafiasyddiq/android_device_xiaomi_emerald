@@ -104,10 +104,6 @@ PRODUCT_PACKAGES += \
     create_pl_dev \
     create_pl_dev.recovery
 
-# DT2W
-PRODUCT_PACKAGES += \
-    DT2W-Service-MT6789
-
 # fastbootd
 PRODUCT_PACKAGES += \
     fastbootd \
