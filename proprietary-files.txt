@@ -1092,14 +1092,9 @@ vendor/lib64/libwifi-hal.so:vendor/lib64/libwifi-hal-mtk.so
 vendor/lib64/vendor.mediatek.hardware.netdagent@1.0.so
 
 # Fingerprint
-vendor/app/goodix_sz_miui/goodix_sz_miui.apk
-vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service
-vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc
-vendor/lib64/libmifpext.so
-vendor/lib64/vendor.xiaomi.hardware.fingerprintextension@1.0.so
-vendor/odm/lib64/hw/fingerprint.fpc.so
-vendor/odm/lib64/hw/fingerprint.goodix_fod.so
-vendor/odm/lib64/libgf_hal.so
+vendor/odm/lib64/hw/fingerprint.goodix_fod.so:vendor/lib64/hw/fingerprint.goodix_fod.default.so;FIX_SONAME
+vendor/odm/lib64/libgf_hal.so:vendor/lib64/libgf_hal.so
+vendor/lib64/vendor.xiaomi.hardware.fx.tunnel@1.0.so
 
 # USB
 vendor/bin/hw/android.hardware.usb@1.2-service-mediatekv2

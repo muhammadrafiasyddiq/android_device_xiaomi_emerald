@@ -340,7 +340,10 @@ PRODUCT_SOONG_NAMESPACES += \
 	hardware/xiaomi \
 	hardware/lineage/interfaces/power-libperfmgr
     
-
+# Fingerprint
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.3-service.xiaomi
+    
 # NFC
 PRODUCT_PACKAGES += \
     NfcNci \
