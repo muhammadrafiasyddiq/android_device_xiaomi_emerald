@@ -179,6 +179,16 @@ ro.vendor.mtk_nn.option=A,B,C,D,E,F,G,Z
 ro.vendor.mtk_nn_quant_preferred=1
 ro.vendor.mtk_nn_baseline_support=1
 
+# LMK
+ro.lmk.kill_heaviest_task=true
+ro..psi_complete_stall_ms=70
+ro.lmk.swap_free_low_percentage=10
+ro.lmk.thrashing_limit=30
+ro.lmk.thrashing_limit_decay=50
+ro.lmk.swap_util_max=90
+ro.lmk.kill_timeout_ms=100
+ro.lmk.psi_partial_stall_ms=35
+
 # Radio
 ro.vendor.mtk_eccci_c2k=1
 persist.radio.multisim.config=dsds
