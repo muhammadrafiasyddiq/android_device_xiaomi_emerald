@@ -22,8 +22,18 @@
      entries do not follow the convention, but all new entries should. -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-      <bool name="config_is_powerbutton_fps">true</bool>
-    <bool name="config_powerButtonFingerprint">true</bool>
+          <!-- The properties of a UDFPS sensor in pixels, in the order listed below: -->
+    <integer-array name="config_udfps_sensor_props" translatable="false" >
+      <!--
+        <item>sensorLocationX</item>
+        <item>sensorLocationY</item>
+        <item>sensorRadius</item>
+      -->
+        <item>540</item>
+        <item>2200</item>
+        <item>91</item>
+    </integer-array>
+    
 <string-array name="config_biometric_sensors">
       <item>0:2:15</item>
     </string-array>
