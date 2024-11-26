@@ -137,14 +137,14 @@ class RafiUdfpsHander : public UdfpsHandler {
     android::base::unique_fd touch_fd_;
 
     void setFodStatus(int value) {
-        int buf[MAX_BUF_SIZE] = {TOUCH_ID, Touch_Fod_Enable, value};
+        int buf[MAX_BUF_SIZE] = {Touch_Fod_Enable, value};
         ioctl(touch_fd_.get(), TOUCH_IOC_SET_CUR_VALUE, &buf);
     }
 
     void setFingerDown(bool pressed) {
         mDevice->extCmd(mDevice, COMMAND_NIT, pressed ? PARAM_NIT_FOD : PARAM_NIT_NONE);
 
-        int buf[MAX_BUF_SIZE] = {TOUCH_ID, Touch_Fod_Enable, pressed ? 1 : 0};
+        int buf[MAX_BUF_SIZE] = {Touch_Fod_Enable, pressed ? 1 : 0};
         ioctl(touch_fd_.get(), TOUCH_IOC_SET_CUR_VALUE, &buf);
 
         set(DISP_PARAM_PATH,
