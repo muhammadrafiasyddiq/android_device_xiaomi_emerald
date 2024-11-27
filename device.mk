@@ -109,7 +109,10 @@ PRODUCT_PACKAGES += \
     fastbootd \
     android.hardware.fastboot@1.0-impl-mock
 
-
+# DT2W
+PRODUCT_PACKAGES += \
+    DT2W-Service-MT6789
+    
 # F2FS
 PRODUCT_PACKAGES += \
     sg_write_buffer \
@@ -371,7 +374,7 @@ PRODUCT_PACKAGES += \
     init.sensor_2_0.rc \
     init.project.rc \
     init.insmod.sh \
-    init.panel_info.sh \
+    init.dt2w.sh \
     ueventd.mtk.rc \
     init.recovery.mt6789.rc \
     init.recovery.usb.rc \

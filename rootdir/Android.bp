@@ -102,8 +102,8 @@ sh_binary {
 }
 
 sh_binary {
-    name: "init.panel_info.sh",
-    src: "bin/init.panel_info.sh",
+    name: "init.dt2w.sh",
+    src: "bin/init.dt2w.sh",
     vendor: true
 }
 
