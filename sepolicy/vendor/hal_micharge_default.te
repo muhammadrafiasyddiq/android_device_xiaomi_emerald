@@ -7,9 +7,9 @@ type hal_micharge_default_exec, file_type, exec_type, vendor_file_type;
 type hal_micharge_hwservice, hwservice_manager_type;
 
 allow hal_micharge_server hal_micharge_client:binder transfer;
-allow init hal_micharge_default_exec:file { read getattr map execute open execute_no_trans };
+allow init hal_micharge_default_exec:file { read getattr map execute open };
 allow hal_micharge_server hal_micharge_hwservice:hwservice_manager { add find };
-allow hal_micharge_default hidl_base_hwservice:hwservice_manager { find add };
+allow hal_micharge_default hidl_base_hwservice:hwservice_manager { add };
 
 init_daemon_domain(hal_micharge_default)
 hal_server_domain(hal_micharge_default, hal_micharge)

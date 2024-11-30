@@ -1,7 +1,5 @@
 type vendor_fingerprint_data_file, file_type, data_file_type;
 
-allow hal_fingerprint_default hal_power_hwservice:hwservice_manager { find add };
-
 allow hal_fingerprint_default { mtee_trusty_file sysfs_gpu sysfs_pmu sysfs_dvfsrc_dbg }:dir r_dir_perms;
 
 allow hal_fingerprint_default { mtee_trusty_file sysfs_gpu sysfs_pmu sysfs_dvfsrc_dbg }:file r_file_perms;
