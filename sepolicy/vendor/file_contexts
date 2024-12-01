@@ -33,8 +33,8 @@
 /sys/devices/virtual/touch/touch_dev/touch_vendor       u:object_r:version_info:s0
 /sys/devices/virtual/touch/touch_dev/panel_display      u:object_r:version_info:s0
 
-
 # Fingerprint
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.xiaomi u:object_r:hal_fingerprint_default_exec:s0
 /data/vendor/gf_data(/.*)?                                           u:object_r:vendor_fingerprint_data_file:s0
 
 # Camera
