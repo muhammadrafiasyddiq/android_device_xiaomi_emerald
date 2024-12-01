@@ -30,8 +30,8 @@
         <item>sensorRadius</item>
       -->
         <item>540</item>
-        <item>2200</item>
-        <item>91</item>
+        <item>2169</item>
+        <item>88</item>
     </integer-array>
     
 <string-array name="config_biometric_sensors">
