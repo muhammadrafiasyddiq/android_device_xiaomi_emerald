@@ -27,7 +27,7 @@
 #
 
 # Read Prop For Get Status DT2W
-rafi=$(getprop persist.sys.MT6789.dt2w)
+rafi=$1
 
 
 if [ "$rafi" -eq 1 ]; then
