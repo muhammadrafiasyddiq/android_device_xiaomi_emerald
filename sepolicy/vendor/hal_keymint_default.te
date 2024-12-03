@@ -1,3 +1,5 @@
 # Allow Keymint to set MTK TEEI Props
 set_prop(hal_keymint_default, vendor_mtk_soter_teei_prop)
 
+allow hal_keymint_default mitee_client_device:chr_file { ioctl read write open };
+allow hal_keymint_default kmsg_device:chr_file { ioctl read write getattr lock append map open watch watch_reads };

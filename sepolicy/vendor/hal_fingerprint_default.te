@@ -8,7 +8,12 @@ allow hal_fingerprint_default vendor_fingerprint_data_file:file rw_file_perms;
 allow hal_fingerprint_default vendor_hal_fingerprint_hwservice_xiaomi:hwservice_manager { find add };
 allow init hal_fingerprint_default:process { ptrace };
 
-
-
+allow hal_fingerprint_default vendor_fingerprint_sysfs:dir r_dir_perms;
+allow hal_fingerprint_default vendor_fingerprint_sysfs:file r_file_perms;
+allow hal_fingerprint_default vendor_sysfs_displayfeature:dir r_dir_perms;
+allow hal_fingerprint_default vendor_sysfs_displayfeature:file rw_file_perms;
+allow hal_fingerprint_default mitee_client_device:chr_file { ioctl read write open };
+allow hal_fingerprint_default touchfeature_device:chr_file rw_file_perms;
+allow hal_fingerprint_default touchfeature_device:file { read getattr map };
 binder_call(hal_fingerprint_default, mtk_hal_power)
 set_prop(hal_fingerprint_default, vendor_fp_prop)

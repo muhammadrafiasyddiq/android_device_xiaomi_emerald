@@ -9,6 +9,13 @@
 # TEE
 /(vendor|system\/vendor)/bin/tee-supplicant u:object_r:tee_exec:s0
 /(vendor|system\/vendor)/bin/miteelog u:object_r:tee_exec:s0
+/vendor/bin/init\.dt2w\.sh u:object_r:meta_tst_exec:s0
+
+# TEE Device
+/dev/tee0 u:object_r:mitee_client_device:s0
+/dev/teepriv0 u:object_r:mitee_client_device:s0
+/dev/ufs-bsg0 u:object_r:mitee_client_device:s0
+/dev/0:0:0:49476 u:object_r:mitee_client_device:s0
 
 # Health
 /(vendor|system/vendor)/bin/hw/android\.hardware\.health-service\.mt6789 u:object_r:hal_health_default_exec:s0
@@ -24,7 +31,7 @@
 
 # Touch panel gesture
 /sys/devices/virtual/touch/touch_dev/gesture_double_tap_state u:object_r:sysfs_tp_gesture:s0
-/(vendor|system/vendor)/bin/init.panel_info\.sh u:object_r:meta_tst_exec:s0
+/dev/xiaomi-touch                                                   u:object_r:touchfeature_device:s0
 
 # Info Device
 /sys/devices/virtual/touch/touch_dev/panel_color        u:object_r:version_info:s0
@@ -34,6 +41,7 @@
 /sys/devices/virtual/touch/touch_dev/panel_display      u:object_r:version_info:s0
 
 # Fingerprint
+/dev/xiaomi-fp     u:object_r:fingerprint_device:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.xiaomi u:object_r:hal_fingerprint_default_exec:s0
 /data/vendor/gf_data(/.*)?                                           u:object_r:vendor_fingerprint_data_file:s0
 
@@ -45,6 +53,26 @@
 # Charger
 /(vendor|system/vendor)/bin/hw/vendor.xiaomi.hardware.micharge@1.0-service     u:object_r:hal_micharge_default_exec:s0
 
+# Mfidoca
+/vendor/bin/fidoca_mitee u:object_r:hal_mfidoca_default_exec:s0
+
+# Mlipay
+/vendor/bin/mlipayd_mitee@1\.1 u:object_r:hal_mlipay_default_exec:s0
+
+# Mtdservice
+/vendor/bin/mtd_mitee@1\.3 u:object_r:hal_mtdservice_default_exec:s0
+
 # NFC
 /dev/nq-nci             u:object_r:nfc_device:s0
 /dev/ttyACM1           u:object_r:nfc_device:s0
+
+# Vibrator
+/vendor/bin/hw/vendor\.qti\.hardware\.vibrator\.service u:object_r:hal_vibrator_default_exec:s0
+
+# Sensor 
+/(vendor|system/vendor)/bin/hw/vendor\.xiaomi\.sensor\.citsensorservice@2\.0-service u:object_r:vendor_hal_citsensorservice_xiaomi_default_exec:s0
+/dev/elliptic0  u:object_r:sensors_device:s0
+/dev/elliptic1  u:object_r:sensors_device:s0 
+
+# Tee
+/data/vendor/mitee(/.*)? u:object_r:mitee_data_file:s0 

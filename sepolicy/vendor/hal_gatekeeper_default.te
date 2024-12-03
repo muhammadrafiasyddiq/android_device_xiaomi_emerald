@@ -1,0 +1,2 @@
+allow hal_gatekeeper_default mitee_client_device:chr_file { ioctl read write open };
+allow hal_gatekeeper_default kmsg_device:chr_file { ioctl read write getattr lock append map open watch watch_reads };

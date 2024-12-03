@@ -13,6 +13,8 @@ type version_info, fs_type, sysfs_type;
 
 #TP
 type sysfs_tp_virtual_prox, fs_type, sysfs_type;
+type vendor_fingerprint_sysfs, fs_type, sysfs_type;
+type touchfeature_device, dev_type;
 
 # Camera
 type camera_persist_file, file_type;
@@ -20,3 +22,8 @@ type camera_vendor_data_file, file_type, data_file_type;
 
 # Audio
 type vendor_sia_mode, fs_type, sysfs_type;
+
+# Tee 
+type mitee_client_device, dev_type, mlstrustedobject;
+type mitee_data_file, file_type, data_file_type;
+type proc_mitee_log, fs_type, proc_type;

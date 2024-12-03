@@ -1,3 +1,5 @@
 get_prop(hal_audio_default, vendor_audioserver_prop)
 
 allow hal_audio_default vendor_sia_mode:file r_file_perms;
+allow hal_audio_default hf_manager_device:chr_file rw_file_perms;
+allow hal_audio_default sensors_device:chr_file rw_file_perms;

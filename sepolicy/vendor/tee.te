@@ -1,0 +1,4 @@
+allow tee mitee_client_device:chr_file rw_file_perms;
+allow tee mitee_data_file:dir rw_dir_perms;
+allow tee mitee_data_file:file rw_file_perms;
+allow tee proc_mitee_log:file { read getattr open };

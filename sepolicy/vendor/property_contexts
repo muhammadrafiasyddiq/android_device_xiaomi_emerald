@@ -5,6 +5,7 @@ vendor.audiomediatek. u:object_r:vendor_audioserver_prop:s0
 vendor.camera. u:object_r:vendor_mtk_camera_prop:s0
 persist.camera.dualcal.state u:object_r:vendor_mtk_camera_prop:s0
 persist.vendor.camera. u:object_r:vendor_mtk_camera_prop:s0
+ro.boot.camera. u:object_r:vendor_mtk_camera_prop:s0
 
 # Display
 persist.vendor.video.dfps.level u:object_r:vendor_displayfeature_prop:s0
@@ -28,6 +29,16 @@ vendor.panel.color  u:object_r:vendor_fp_prop:s0
 vendor.panel.display       u:object_r:vendor_fp_prop:s0
 vendor.panel.touch_vendor  u:object_r:vendor_fp_prop:s0
 vendor.panel.vendor        u:object_r:vendor_fp_prop:s0
+persist.vendor.sys.fp.module u:object_r:vendor_fp_prop:s0
+persist.vendor.sys.fp.info u:object_r:vendor_fp_prop:s0
+persist.vendor.sys.fp.expolevel u:object_r:vendor_fp_prop:s0
+persist.vendor.sys.fp.heartbeat u:object_r:vendor_fp_prop:s0
 
 # VT
 vendor.ims.vt.signalstrength.    u:object_r:system_mtk_ims_vt_signalstrength_prop:s0
+
+# Mlipay
+persist.vendor.sys.pay. u:object_r:vendor_mlipay_prop:s0
+persist.vendor.sys.provision.status u:object_r:vendor_mlipay_prop:s0
+vendor.sys.feature_state u:object_r:vendor_mlipay_prop:s0
+vendor.sys.rpmb_state u:object_r:vendor_mlipay_prop:s0 
