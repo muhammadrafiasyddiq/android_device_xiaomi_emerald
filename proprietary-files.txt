@@ -1822,6 +1822,7 @@ vendor/lib64/vendor.mediatek.hardware.netdagent@1.0.so
 
 # Fingerprint
 vendor/odm/lib64/hw/fingerprint.goodix_fod.so:vendor/lib64/hw/fingerprint.goodix_fod.default.so;FIX_SONAME
+vendor/odm/lib64/hw/fingerprint.fpc.so:vendor/lib64/hw/fingerprint.fpc_fod.default.so;FIX_SONAME
 vendor/odm/lib64/libgf_hal.so:vendor/lib64/libgf_hal.so
 vendor/lib64/vendor.xiaomi.hardware.fx.tunnel@1.0.so
 
