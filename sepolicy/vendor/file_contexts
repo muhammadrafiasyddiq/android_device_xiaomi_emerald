@@ -69,6 +69,9 @@
 # Vibrator
 /vendor/bin/hw/vendor\.qti\.hardware\.vibrator\.service u:object_r:hal_vibrator_default_exec:s0
 
+# IR
+/dev/ir_spi u:object_r:vendor_ir_spi_device:s0
+
 # Sensor 
 /(vendor|system/vendor)/bin/hw/vendor\.xiaomi\.sensor\.citsensorservice@2\.0-service u:object_r:vendor_hal_citsensorservice_xiaomi_default_exec:s0
 /dev/elliptic0  u:object_r:sensors_device:s0

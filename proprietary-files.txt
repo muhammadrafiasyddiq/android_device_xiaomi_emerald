@@ -1003,6 +1003,9 @@ vendor/etc/dsi_n6_42_0d_0a_dsc_vdo_mi.xml
 vendor/firmware/focaltech_mp_fw_huaxin.ini
 vendor/firmware/focaltech_ts_fw_huaxing.bin
 
+# IR
+vendor/lib64/hw/consumerir.common.so
+
 # Fido
 vendor/bin/fidoca_mitee
 vendor/etc/init/vendor.xiaomi.hardware.mfidoca@1.0-miteeservice.rc
