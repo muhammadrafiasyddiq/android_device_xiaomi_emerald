@@ -181,6 +181,10 @@ vendor/lib64/vendor.mediatek.hardware.bluetooth.audio@2.2.so
 vendor/bin/chipinfo
 vendor/etc/init/chipinfo_init.rc
 
+# Charger
+vendor/bin/batterysecret
+vendor/etc/init/init.batterysecret.rc
+
 # Camera
 vendor/bin/hw/mt6789/camerahalserver
 vendor/etc/init/camerahalserver.rc

@@ -3,6 +3,9 @@
 /sys/devices/platform/soc/14013000.dsi/14013000.dsi.0/panel_event u:object_r:sysfs_graphics:s0
 /sys/devices/platform/soc/14013000.dsi/14013000.dsi.1/panel_event u:object_r:sysfs_graphics:s0
 
+# Charger
+/(vendor|system/vendor)/bin/batterysecret u:object_r:batterysecret_exec:s0
+
 # Keymint
 /(vendor|system\/vendor)/bin/hw/android\.hardware\.security\.keymint@1\.0-service\.mitee  u:object_r:hal_keymint_default_exec:s0
 
