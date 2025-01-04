@@ -10,6 +10,8 @@ allow init hal_fingerprint_default:process { ptrace };
 
 allow hal_fingerprint_default vendor_fingerprint_sysfs:dir r_dir_perms;
 allow hal_fingerprint_default vendor_fingerprint_sysfs:file r_file_perms;
+allow hal_fingerprint_default sysfs_therm:dir r_dir_perms;
+allow hal_fingerprint_default sysfs_therm:file r_file_perms;
 allow hal_fingerprint_default vendor_sysfs_displayfeature:dir r_dir_perms;
 allow hal_fingerprint_default vendor_sysfs_displayfeature:file rw_file_perms;
 allow hal_fingerprint_default mitee_client_device:chr_file { ioctl read write open };
