@@ -1,0 +1,3 @@
+permissive charger_vendor;
+permissive batterysecret;
+permissive hal_health_default;
