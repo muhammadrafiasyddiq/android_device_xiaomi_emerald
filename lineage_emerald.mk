@@ -26,6 +26,14 @@ BUILD_FINGERPRINT :=POCO/emerald_p_id/emerald:14/UP1A.231005.007/V816.0.6.0.UNFI
 PRIVATE_BUILD_DESC="emerald_p_id-user 14 UP1A.231005.007 V816.0.6.0.UNFIDXM release-keys"
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-       TARGET_PRODUCT=emerald_p_id
+       DeviceProduct=emerald \
+       RisingMaintainer="Rafi_Asyddiq"
+       
+PRODUCT_NO_CAMERA := false
+TARGET_DEFAULT_PIXEL_LAUNCHER := false
+TARGET_ENABLE_PIXEL_FEATURES := true
+TARGET_ENABLE_BLUR := false
+RISING_MAINTAINER := Rafi_Asyddiq
        
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+TARGET_HAS_UDFPS := true
