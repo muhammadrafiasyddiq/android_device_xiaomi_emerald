@@ -37,9 +37,12 @@ lib_fixups: lib_fixups_user_type = {
 blob_fixups: blob_fixups_user_type = {
 
    'system_ext/lib64/libimsma.so': blob_fixup()
-        .replace_needed('libsink.so', 'libsink-mtk.so'),
+        .replace_needed('libsink.so', 'libsink-mtk.so')
+        .add_needed('libshim_sink.so'),
 
-
+   'system_ext/lib64/libsink-mtk.so': blob_fixup()
+        .add_needed('libshim_sink.so'),
+        
   'vendor/bin/hw/vendor.mediatek.hardware.mtkpower@1.0-service': blob_fixup()
         .replace_needed('android.hardware.power-V2-ndk_platform.so', 'android.hardware.power-V2-ndk.so'),
         
@@ -71,10 +74,36 @@ blob_fixups: blob_fixups_user_type = {
         
     ('vendor/lib64/hw/hwcomposer.mtk_common.so', 'vendor/bin/hw/vendor.mediatek.hardware.pq@2.2-service') : blob_fixup()
         .add_needed('libprocessgroup_shim.so'),
+
         
     'vendor/bin/hw/android.hardware.security.keymint@1.0-service.mitee': blob_fixup()
-        .replace_needed('android.hardware.security.keymint-V1-ndk_platform.so', 'android.hardware.security.keymint-V4-ndk.so'),
+        .replace_needed('android.hardware.security.keymint-V1-ndk_platform.so', 'android.hardware.security.keymint-V4-ndk.so')
+        .replace_needed('android.hardware.security.sharedsecret-V1-ndk_platform.so', 'android.hardware.security.sharedsecret-V1-ndk.so')
+        .replace_needed('android.hardware.security.secureclock-V1-ndk_platform.so', 'android.hardware.security.secureclock-V1-ndk.so')
+        .add_needed('android.hardware.security.rkp-V3-ndk.so'),
 
+
+    ('vendor/lib64/mt6789/lib3a.flash.so', 'vendor/lib64/mt6789/lib3a.ae.stat.so', 'vendor/lib64/mt6789/lib3a.sensors.flicker.so',
+     'vendor/lib64/mt6789/lib3a.sensors.color.so', 'vendor/lib64/mt6789/libaaa_ltm.so', 'vendor/lib64/lib3a.ae.pipe.so',
+     'vendor/lib64/libSQLiteModule_VER_ALL.so'): blob_fixup()
+        .add_needed('liblog.so'),
+        
+        
+    'system_ext/lib64/libsource.so': blob_fixup()
+        .add_needed('libshim_ui.so'),
+        
+    ('vendor/bin/hw/android.hardware.gnss-service.mediatek', 'vendor/lib64/hw/android.hardware.gnss-impl-mediatek.so'): blob_fixup()
+        .replace_needed('android.hardware.gnss-V1-ndk_platform.so', 'android.hardware.gnss-V1-ndk.so'),
+        
+   'vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b': blob_fixup()
+        .add_needed('libstagefright_foundation-v33.so')
+        .replace_needed('libavservices_minijail_vendor.so', 'libavservices_minijail.so'),
+        
+        
+                 ('vendor/lib64/mt6789/libneuralnetworks_sl_driver_mtk_prebuilt.so',
+     'vendor/lib/libnvram.so', 'vendor/lib64/libnvram.so', 'vendor/lib/libsysenv.so', 'vendor/lib64/libsysenv.so', 'vendor/lib64/libtflite_mtk.so', 'vendor/lib64/nfc_nci_nxp.so', 'vendor/bin/hw/android.hardware.usb@1.2-service-mediatekv2'): blob_fixup()
+        .add_needed('libbase_shim.so'),
+        
 }  # fmt: skip
 
 module = ExtractUtilsModule(
